@@ -53,11 +53,17 @@
       if (submitBtn) submitBtn.setAttribute("disabled", "true");
       if (status) status.textContent = "Sending…";
 
-      // Netlify Forms expects urlencoded form data.
+      // Netlify Forms expects urlencoded form data with form-name included
+      const formData = new URLSearchParams();
+      formData.append("form-name", "contact");
+      for (const [key, value] of fd.entries()) {
+        formData.append(key, value);
+      }
+
       fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(fd).toString()
+        body: formData.toString()
       })
         .then((res) => {
           if (res.ok) {

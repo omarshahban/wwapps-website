@@ -67,12 +67,13 @@
                 name="contact"
                 method="POST"
                 action="/thanks.html"
-                netlify
+                data-netlify="true"
                 netlify-honeypot="bot-field"
               >
                 <input type="hidden" name="form-name" value="contact" />
+                <input type="hidden" name="subject" value="New contact form submission from wwapps.io" />
                 <p class="sr-only">
-                  <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
+                  <label>Don't fill this out if you're human: <input name="bot-field" /></label>
                 </p>
                 <label class="field">
                   <span class="label">Name</span>
