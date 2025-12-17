@@ -908,8 +908,9 @@ textarea:focus {
 .footer-bottom-content {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   gap: var(--space-400);
+  flex-direction: row-reverse;
 }
 
 .shopify-badge-link {
@@ -923,8 +924,9 @@ textarea:focus {
 }
 
 .shopify-badge {
-  height: 32px;
-  width: auto;
+  max-width: 250px;
+  width: 100%;
+  height: auto;
 }
 
 /* Responsive */
@@ -1241,7 +1243,7 @@ textarea:focus {
   }
 
   .footer-bottom-content {
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-items: flex-start;
     gap: var(--space-300);
   }
