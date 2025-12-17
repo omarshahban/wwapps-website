@@ -905,6 +905,28 @@ textarea:focus {
   padding-top: 12px;
 }
 
+.footer-bottom-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-400);
+}
+
+.shopify-badge-link {
+  display: inline-block;
+  line-height: 0;
+  transition: opacity 0.2s ease;
+}
+
+.shopify-badge-link:hover {
+  opacity: 0.8;
+}
+
+.shopify-badge {
+  height: 32px;
+  width: auto;
+}
+
 /* Responsive */
 @media (max-width: 980px) {
   .hero-inner {
@@ -1216,6 +1238,12 @@ textarea:focus {
 
   .blog-cta {
     padding: var(--space-600);
+  }
+
+  .footer-bottom-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-300);
   }
 }
 
