@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact — Win‑Win Apps</title>
+    <meta
+      name="description"
+      content="Contact Win‑Win Apps about Shopify apps, partnerships, or custom builds."
+    />
+    <meta name="theme-color" content="#0b1220" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Contact — Win‑Win Apps" />
+    <meta property="og:description" content="Shopify apps that create win‑wins for merchants and customers." />
+    <meta property="og:image" content="/assets/og-image.svg" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/styles.css" />
+    <script defer src="/main.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="/" aria-label="Win‑Win Apps home">
+          <img class="brand-mark" src="/assets/wwapps-icon.svg" alt="" aria-hidden="true" width="34" height="34" />
+          <span class="brand-name">Win‑Win Apps</span>
+        </a>
+
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+          <span class="sr-only">Open menu</span>
+          <span class="nav-toggle-bars" aria-hidden="true"></span>
+        </button>
+
+        <nav id="site-nav" class="site-nav" aria-label="Primary">
+          <a href="/apps.html">Apps</a>
+          <a href="/about.html">About</a>
+          <a href="/contact.html" class="nav-cta" aria-current="page">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="page-hero">
+        <div class="container">
+          <p class="eyebrow">Contact</p>
+          <h1>Let’s build a win‑win.</h1>
+          <p class="lead muted">
+            Tell us what you’re trying to improve—conversion, retention, support, or customer trust—and we’ll reply with
+            next steps.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="grid-2">
+            <div class="card">
+              <h2>Send a message</h2>
+              <p class="muted">
+                This form can send messages to us via your hosting provider (no email address exposed on the page).
+                Deploy on Netlify to enable email notifications (details in the README).
+              </p>
+
+              <!-- Netlify Forms (recommended). Configure email notifications in Netlify UI. -->
+              <form
+                id="contact-form"
+                class="form"
+                name="contact"
+                method="POST"
+                action="/thanks.html"
+                data-netlify="true"
+                netlify-honeypot="bot-field"
+              >
+                <input type="hidden" name="form-name" value="contact" />
+                <p class="sr-only">
+                  <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
+                </p>
+                <label class="field">
+                  <span class="label">Name</span>
+                  <input name="name" type="text" autocomplete="name" placeholder="Jane Merchant" required />
+                </label>
+
+                <label class="field">
+                  <span class="label">Email</span>
+                  <input name="email" type="email" autocomplete="email" placeholder="jane@store.com" required />
+                </label>
+
+                <label class="field">
+                  <span class="label">Message</span>
+                  <textarea
+                    name="message"
+                    rows="6"
+                    placeholder="What’s the problem, what’s your store, and what would “win‑win” look like?"
+                    required
+                  ></textarea>
+                </label>
+
+                <button class="btn btn-primary" type="submit">Send</button>
+                <p class="form-status muted" role="status" aria-live="polite"></p>
+              </form>
+            </div>
+
+            <div class="card">
+              <h2>Prefer specifics?</h2>
+              <p class="muted">Include:</p>
+              <ul class="bullets">
+                <li>Your store URL</li>
+                <li>Which workflow you want to improve (cart/checkout/post‑purchase/support)</li>
+                <li>Any constraints (theme, apps, timeline)</li>
+              </ul>
+
+              <div class="callout compact">
+                <div class="callout-title">Response time</div>
+                <div class="callout-body muted">Typically within 1–2 business days.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-left">
+          <div class="footer-brand">Win‑Win Apps</div>
+          <div class="footer-note muted">Shopify apps that help merchants and customers.</div>
+        </div>
+        <div class="footer-right">
+          <a href="/apps.html">Apps</a>
+          <a href="/about.html">About</a>
+          <a href="/privacy.html">Privacy</a>
+          <a href="/contact.html">Contact</a>
+        </div>
+      </div>
+      <div class="container footer-bottom muted">
+        <span>© <span data-year></span> Win‑Win Apps. All rights reserved.</span>
+      </div>
+    </footer>
+  </body>
+</html>
+
+

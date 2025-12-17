@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 128 128" role="img" aria-label="Win‑Win Store Credit">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F2A45B" />
+      <stop offset="1" stop-color="#F7D2AE" />
+    </linearGradient>
+  </defs>
+  <rect x="10" y="10" width="108" height="108" rx="28" fill="url(#bg)" />
+  <path
+    d="M34 42h12l10 36 10-28h12l10 28 10-36h12l-16 54H86L74 66 62 96H50L34 42z"
+    fill="#0b1633"
+  />
+</svg>
+
+
