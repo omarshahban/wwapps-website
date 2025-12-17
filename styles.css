@@ -917,6 +917,7 @@ textarea:focus {
   display: inline-block;
   line-height: 0;
   transition: opacity 0.2s ease;
+  align-self: flex-end;
 }
 
 .shopify-badge-link:hover {
@@ -924,7 +925,7 @@ textarea:focus {
 }
 
 .shopify-badge {
-  max-width: 250px;
+  max-width: 200px;
   width: 100%;
   height: auto;
 }
