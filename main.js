@@ -59,13 +59,16 @@
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams(fd).toString()
       })
-        .then(() => {
-          window.location.href = action;
+        .then((res) => {
+          if (res.ok) {
+            window.location.href = action;
+          } else {
+            throw new Error("Form submission failed");
+          }
         })
         .catch(() => {
           if (status) {
-            status.textContent =
-              "Couldn’t send from this preview. This works after deploying (e.g., Netlify Forms).";
+            status.textContent = "Something went wrong. Please try again or refresh the page.";
           }
           if (submitBtn) submitBtn.removeAttribute("disabled");
         });

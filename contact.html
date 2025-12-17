@@ -59,19 +59,15 @@
           <div class="grid-2">
             <div class="card">
               <h2>Send a message</h2>
-              <p class="muted">
-                This form can send messages to us via your hosting provider (no email address exposed on the page).
-                Deploy on Netlify to enable email notifications (details in the README).
-              </p>
+              <p class="muted">We'll get back to you within 1–2 business days.</p>
 
-              <!-- Netlify Forms (recommended). Configure email notifications in Netlify UI. -->
               <form
                 id="contact-form"
                 class="form"
                 name="contact"
                 method="POST"
                 action="/thanks.html"
-                data-netlify="true"
+                netlify
                 netlify-honeypot="bot-field"
               >
                 <input type="hidden" name="form-name" value="contact" />
@@ -132,6 +128,7 @@
           <a href="/apps.html">Apps</a>
           <a href="/about.html">About</a>
           <a href="/privacy.html">Privacy</a>
+          <a href="/terms.html">Terms</a>
           <a href="/contact.html">Contact</a>
         </div>
       </div>
