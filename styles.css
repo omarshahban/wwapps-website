@@ -907,10 +907,10 @@ textarea:focus {
 
 .footer-bottom-content {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: flex-end;
-  gap: var(--space-400);
-  flex-direction: row-reverse;
+  gap: var(--space-200);
+  flex-direction: column;
 }
 
 .shopify-badge-link {
