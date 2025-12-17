@@ -31,7 +31,7 @@
     $$("#site-nav a").forEach((a) => a.addEventListener("click", close));
   }
 
-  // Contact form -> mailto (no backend)
+  // Contact form -> Netlify Forms
   const form = $("#contact-form");
   if (form) {
     const status = $(".form-status", form);
@@ -48,7 +48,6 @@
         return;
       }
 
-      const action = form.getAttribute("action") || "/thanks.html";
       const submitBtn = $('button[type="submit"]', form);
       if (submitBtn) submitBtn.setAttribute("disabled", "true");
       if (status) status.textContent = "Sending…";
@@ -56,9 +55,15 @@
       // Netlify Forms expects urlencoded form data with form-name included
       const formData = new URLSearchParams();
       formData.append("form-name", "contact");
-      for (const [key, value] of fd.entries()) {
-        formData.append(key, value);
-      }
+      // Include all form fields
+      formData.append("name", name);
+      formData.append("email", email);
+      formData.append("message", message);
+      // Include hidden fields
+      const botField = fd.get("bot-field");
+      if (botField) formData.append("bot-field", botField);
+      const subject = fd.get("subject");
+      if (subject) formData.append("subject", subject);
 
       fetch("/", {
         method: "POST",
@@ -67,7 +72,7 @@
       })
         .then((res) => {
           if (res.ok) {
-            window.location.href = action;
+            window.location.href = "/thanks.html";
           } else {
             throw new Error("Form submission failed");
           }
