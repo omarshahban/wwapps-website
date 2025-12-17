@@ -57,7 +57,6 @@ publishing your email address on the website.
 
 ## Assets
 
-- `favicon.svg`
-- `assets/og-image.svg` (used for social previews)
+- App icons/logos live under `assets/`
 
 

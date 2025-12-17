@@ -1,0 +1,17 @@
+{
+  "name": "Win‑Win Apps",
+  "short_name": "Win‑Win Apps",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFF8F3",
+  "theme_color": "#FFF8F3",
+  "icons": [
+    {
+      "src": "/assets/Win-Win%20apps.png",
+      "sizes": "1200x1200",
+      "type": "image/png"
+    }
+  ]
+}
+
+
