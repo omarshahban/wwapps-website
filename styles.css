@@ -774,8 +774,9 @@ main {
 }
 
 .cta-actions .btn {
-  padding: 10px 16px;
+  padding: 10px 20px;
   font-size: var(--font-size-body-s);
+  white-space: nowrap;
 }
 
 /* Forms */
@@ -970,8 +971,8 @@ textarea:focus {
   }
 
   .cta-actions .btn {
-    flex: 1;
-    padding: 10px 14px;
+    width: 100%;
+    padding: 12px 16px;
   }
 
   .nav-toggle {
