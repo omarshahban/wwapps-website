@@ -1,0 +1,54 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+<BaseLayout
+  title="Contact Win-Win Apps"
+  description="Get in touch with the Win-Win Apps team. We reply within 24 hours."
+  current="contact"
+>
+  <section class="hero">
+    <div class="container container-narrow">
+      <p class="eyebrow">Contact</p>
+      <h1>Say hi.</h1>
+      <p class="hero-lead">Questions, feedback, or a custom app idea? Email us and we will reply within 24 hours.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container container-narrow">
+      <form
+        name="contact"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        class="card"
+        style="gap: 16px; display: flex; flex-direction: column;"
+      >
+        <input type="hidden" name="form-name" value="contact" />
+        <p style="display:none"><label>Don't fill: <input name="bot-field" /></label></p>
+
+        <div>
+          <label for="name" style="display:block;margin-bottom:6px;font-weight:700">Your name</label>
+          <input id="name" name="name" type="text" required style="width:100%;padding:12px 14px;border-radius:10px;border:1px solid var(--color-brown-outline);font-family:inherit;font-size:16px" />
+        </div>
+        <div>
+          <label for="email" style="display:block;margin-bottom:6px;font-weight:700">Email</label>
+          <input id="email" name="email" type="email" required style="width:100%;padding:12px 14px;border-radius:10px;border:1px solid var(--color-brown-outline);font-family:inherit;font-size:16px" />
+        </div>
+        <div>
+          <label for="store" style="display:block;margin-bottom:6px;font-weight:700">Store URL (optional)</label>
+          <input id="store" name="store" type="url" placeholder="https://yourstore.myshopify.com" style="width:100%;padding:12px 14px;border-radius:10px;border:1px solid var(--color-brown-outline);font-family:inherit;font-size:16px" />
+        </div>
+        <div>
+          <label for="message" style="display:block;margin-bottom:6px;font-weight:700">Message</label>
+          <textarea id="message" name="message" rows="6" required style="width:100%;padding:12px 14px;border-radius:10px;border:1px solid var(--color-brown-outline);font-family:inherit;font-size:16px;resize:vertical"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="align-self:flex-start">Send message</button>
+      </form>
+
+      <div style="margin-top:32px" class="muted">
+        <p>Prefer email? You can also reach us at <a href="mailto:hello@wwapps.io">hello@wwapps.io</a>. We read every message and usually reply the same day.</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

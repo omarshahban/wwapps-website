@@ -1,0 +1,34 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+const entries = (await getCollection("comparisons")).sort(
+  (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
+);
+---
+<BaseLayout
+  title="App comparisons: Win-Win Apps vs the field"
+  description="Honest head-to-head comparisons between our Shopify apps and the well-known competitors. We pick winners fairly."
+  current="compare"
+>
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">Compare</p>
+      <h1>How our apps stack up.</h1>
+      <p class="hero-lead">Where we win, where the other guy wins, and which one fits your store.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      {entries.length === 0 && <p>Comparisons coming soon.</p>}
+      <div class="grid grid-2">
+        {entries.map(e => (
+          <a class="card" href={`/compare/${e.slug}/`} style="text-decoration:none;color:inherit">
+            <p class="eyebrow">{e.data.ourApp} vs {e.data.competitor}</p>
+            <h3 style="margin:6px 0 10px">{e.data.title}</h3>
+            <p>{e.data.description}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

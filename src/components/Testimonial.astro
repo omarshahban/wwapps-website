@@ -1,0 +1,14 @@
+---
+interface Props {
+  quote: string;
+  author: string;
+  rating?: number;
+}
+const { quote, author, rating = 5 } = Astro.props;
+const stars = "★".repeat(rating) + "☆".repeat(5 - rating);
+---
+<div class="testimonial">
+  <div class="testimonial-stars" aria-label={`${rating} out of 5 stars`}>{stars}</div>
+  <blockquote>&ldquo;{quote}&rdquo;</blockquote>
+  <cite>{author}</cite>
+</div>

@@ -1,0 +1,104 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import AppCard from "../components/AppCard.astro";
+import Testimonial from "../components/Testimonial.astro";
+import CTA from "../components/CTA.astro";
+import { getCollection } from "astro:content";
+
+const apps = (await getCollection("apps")).sort((a, b) => {
+  const order: Record<string, number> = { live: 0, beta: 1, "coming-soon": 2 };
+  return (order[a.data.status] ?? 9) - (order[b.data.status] ?? 9);
+});
+
+const testimonials = [
+  { quote: "amazing support, great features, and is incredibly easy to use", author: "Store Credit merchant", rating: 5 },
+  { quote: "Bulk store credit tool works immaculately. Saved us hours every week.", author: "Store Credit merchant", rating: 5 },
+  { quote: "The cash-back offer feature automatically displays an offer at checkout. Our return rate dropped.", author: "Returns merchant", rating: 5 }
+];
+---
+<BaseLayout
+  title="Win-Win Apps: Shopify apps that help merchants and customers"
+  description="Simple Shopify apps that help merchants grow and keep their customers happy. Built by a small team, priced fairly, and built for velocity."
+  current=""
+>
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">Shopify apps</p>
+      <h1>Shopify apps that create win-wins for merchants and their customers.</h1>
+      <p class="hero-lead">We build focused, affordable Shopify apps for real merchant problems. Each one does one job well and works out of the box.</p>
+      <div class="hero-actions">
+        <a href="/apps/" class="btn btn-primary">Browse our apps</a>
+        <a href="/about/" class="btn btn-secondary">About Win-Win Apps</a>
+      </div>
+
+      <div class="stat-strip">
+        <div class="stat-item"><strong>{apps.length}+</strong><span>Apps shipped</span></div>
+        <div class="stat-item"><strong>5.0★</strong><span>Average rating</span></div>
+        <div class="stat-item"><strong>Free</strong><span>Meaningful free tier</span></div>
+        <div class="stat-item"><strong>24h</strong><span>Support response</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Our apps</p>
+        <h2>Built for merchants, priced for indie stores.</h2>
+        <p>Each app has a meaningful free tier. Paid tiers are priced well below the category norm. We keep our apps simple so you can get value in minutes.</p>
+      </div>
+      <div class="grid">
+        {apps.map(app => <AppCard app={app} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Merchants say</p>
+        <h2>Real reviews from real stores.</h2>
+      </div>
+      <div class="grid grid-3">
+        {testimonials.map(t => <Testimonial quote={t.quote} author={t.author} rating={t.rating} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Why Win-Win Apps</p>
+        <h2>We do the simple things very well.</h2>
+        <p>We believe the best Shopify apps are the ones you install, set up in five minutes, and stop thinking about.</p>
+      </div>
+      <div class="grid grid-3">
+        <div class="card">
+          <h3>Every app has a free tier</h3>
+          <p>Not a trial. A real free tier you can run forever, with paid plans only when you outgrow the limits.</p>
+        </div>
+        <div class="card">
+          <h3>Fast support from a small team</h3>
+          <p>You email us, you get one of us back within 24 hours. No ticket queue, no outsourced first line.</p>
+        </div>
+        <div class="card">
+          <h3>No lock-in, no dark patterns</h3>
+          <p>Uninstall at any time. All your settings and data stay in your store, not in a vendor silo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container container-narrow">
+      <CTA
+        heading="Want to build a custom app with us?"
+        body="If you have a specific workflow no existing Shopify app solves, we take on a small number of custom builds per quarter."
+        primaryLabel="Get in touch"
+        primaryHref="/contact/"
+        secondaryLabel="Read our blog"
+        secondaryHref="/blog/"
+      />
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,47 @@
+---
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import SEO from "../components/SEO.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  current?: string;
+  canonical?: string;
+  ogImage?: string;
+  type?: string;
+  schema?: any;
+}
+const { title, description, current, canonical, ogImage, type, schema } = Astro.props;
+const orgSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Win-Win Apps",
+  "url": "https://wwapps.io",
+  "logo": "https://wwapps.io/assets/Win-Win%20apps.png",
+  "sameAs": [
+    "https://apps.shopify.com/partners/win-win-apps"
+  ]
+};
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#fff8f3" />
+    <link rel="icon" href="/assets/Win-Win%20apps.png" type="image/png" />
+    <link rel="apple-touch-icon" href="/assets/Win-Win%20apps.png" />
+    <SEO title={title} description={description} canonical={canonical} ogImage={ogImage} type={type} schema={schema} />
+    <script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <Header current={current} />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

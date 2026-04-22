@@ -1,0 +1,40 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CTA from "../components/CTA.astro";
+---
+<BaseLayout
+  title="About Win-Win Apps"
+  description="A small team building simple, affordable Shopify apps that help merchants and their customers."
+  current="about"
+>
+  <section class="hero">
+    <div class="container container-narrow">
+      <p class="eyebrow">About</p>
+      <h1>Small team. Focused apps. Fair pricing.</h1>
+      <p class="hero-lead">Win-Win Apps is an indie team building Shopify apps that do one job very well. We believe the best apps are the ones you install, set up in minutes, and stop thinking about.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container container-narrow prose">
+      <h2>Who we are</h2>
+      <p>We are Omar and Shane, two founders who noticed that a lot of Shopify app categories are dominated by overpriced, overcomplicated apps with poor support. We set out to build the opposite: simple apps, generous free tiers, and fast human support.</p>
+
+      <h2>What we build</h2>
+      <p>We look for categories where two things are true: the leading apps leave obvious gaps in their reviews, and the job can be done without a heavy backend. Most of our apps live entirely inside Shopify as theme app extensions, which means they load fast, do not break themes, and have no servers to worry about.</p>
+
+      <h2>How we work</h2>
+      <p>We ship multiple apps per month using a disciplined process. Every app goes through the same stages: competitor research, build, test on real stores, and careful launch. We do not chase trends. We pick categories where we can charge less than everyone else and still make money because our overhead is low.</p>
+
+      <h2>Who we are for</h2>
+      <p>We build for Shopify merchants who want reliable, well-priced tools without the enterprise fluff. If you run a small or mid-size store and you are tired of apps that start at 29 dollars a month, you are our target customer.</p>
+
+      <CTA
+        heading="Get in touch"
+        body="We read every message. Support, feedback, custom build requests, or just saying hi."
+        primaryLabel="Contact us"
+        primaryHref="/contact/"
+      />
+    </div>
+  </section>
+</BaseLayout>
