@@ -9,13 +9,13 @@ const statusLabel = status === "live" ? "Live" : status === "beta" ? "Beta" : "C
 const logo = app.data.logo || "/assets/Win-Win%20apps.png";
 ---
 <article class="card app-card">
+  <span class={`badge ${statusClass} app-card-status`}>{statusLabel}</span>
   <div class="app-card-head">
     <img src={logo} alt="" class="app-card-logo" width="72" height="72" loading="lazy" />
     <div class="app-card-head-text">
       <h3><a href={`/apps/${app.slug}/`}>{app.data.name}</a></h3>
       <p class="card-meta">{app.data.category}</p>
     </div>
-    <span class={`badge ${statusClass}`}>{statusLabel}</span>
   </div>
   <p class="app-card-tagline">{app.data.tagline}</p>
   {app.data.features && app.data.features.length > 0 && (
