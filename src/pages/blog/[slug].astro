@@ -1,0 +1,40 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+  return posts.map(post => ({ params: { slug: post.slug }, props: { post } }));
+}
+const { post } = Astro.props;
+const { Content } = await post.render();
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: post.data.title,
+  description: post.data.description,
+  datePublished: post.data.publishedAt.toISOString(),
+  dateModified: (post.data.updatedAt || post.data.publishedAt).toISOString(),
+  author: { "@type": "Organization", name: post.data.author, url: "https://wwapps.io" },
+  url: `https://wwapps.io/blog/${post.slug}/`
+};
+---
+<BaseLayout
+  title={`${post.data.title}: Win-Win Apps`}
+  description={post.data.description}
+  current="blog"
+  schema={schema}
+>
+  <section class="hero">
+    <div class="container container-narrow">
+      <p class="eyebrow">{post.data.publishedAt.toISOString().slice(0, 10)}</p>
+      <h1>{post.data.title}</h1>
+      <p class="hero-lead">{post.data.description}</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container container-narrow prose">
+      <Content />
+    </div>
+  </section>
+</BaseLayout>

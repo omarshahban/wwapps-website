@@ -1,0 +1,34 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+const entries = (await getCollection("howto")).sort(
+  (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
+);
+---
+<BaseLayout
+  title="How-to guides: Win-Win Apps"
+  description="Step-by-step guides for common Shopify merchant tasks. Short, clear, screenshotted."
+  current="how-to"
+>
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">Guides</p>
+      <h1>How-to guides for Shopify merchants.</h1>
+      <p class="hero-lead">The exact steps to get things done on your store. No theory, just clicks.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      {entries.length === 0 && <p>New guides are on the way.</p>}
+      <div class="grid grid-2">
+        {entries.map(e => (
+          <a class="card" href={`/how-to/${e.slug}/`} style="text-decoration:none;color:inherit">
+            <p class="eyebrow">{e.data.category}</p>
+            <h3 style="margin:6px 0 10px">{e.data.title}</h3>
+            <p>{e.data.description}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

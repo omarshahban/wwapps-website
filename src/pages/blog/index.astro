@@ -1,0 +1,35 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
+);
+---
+<BaseLayout
+  title="Win-Win Apps blog: Shopify notes and playbooks"
+  description="Short, practical posts on Shopify growth, pricing, and app building."
+  current="blog"
+>
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">Writing</p>
+      <h1>Notes from shipping Shopify apps.</h1>
+      <p class="hero-lead">What we learned, what broke, what worked. Short and practical, no fluff.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container container-narrow">
+      {posts.length === 0 && (
+        <p>New posts are on the way. Check back soon.</p>
+      )}
+      {posts.map(post => (
+        <article class="card" style="margin-bottom:24px">
+          <p class="eyebrow">{post.data.publishedAt.toISOString().slice(0, 10)}</p>
+          <h3 style="margin:6px 0 10px"><a href={`/blog/${post.slug}/`}>{post.data.title}</a></h3>
+          <p>{post.data.description}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

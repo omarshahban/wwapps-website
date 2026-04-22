@@ -1,0 +1,21 @@
+---
+interface Props {
+  heading: string;
+  body?: string;
+  primaryLabel: string;
+  primaryHref: string;
+  secondaryLabel?: string;
+  secondaryHref?: string;
+}
+const { heading, body, primaryLabel, primaryHref, secondaryLabel, secondaryHref } = Astro.props;
+---
+<div class="callout" style="margin: 28px 0; padding: 24px;">
+  <h3 style="margin-bottom:8px">{heading}</h3>
+  {body && <p class="muted" style="margin-bottom:16px">{body}</p>}
+  <div style="display:flex;flex-wrap:wrap;gap:12px">
+    <a href={primaryHref} class="btn btn-primary" target={primaryHref.startsWith("http") ? "_blank" : undefined} rel={primaryHref.startsWith("http") ? "noopener" : undefined}>{primaryLabel}</a>
+    {secondaryLabel && secondaryHref && (
+      <a href={secondaryHref} class="btn btn-secondary">{secondaryLabel}</a>
+    )}
+  </div>
+</div>

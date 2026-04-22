@@ -1,0 +1,35 @@
+---
+const { current = "" } = Astro.props;
+---
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/" aria-label="Win-Win Apps home">
+      <img class="brand-mark" src="/assets/Win-Win%20apps.png" alt="" aria-hidden="true" width="34" height="34" />
+      <span class="brand-name">Win-Win Apps</span>
+    </a>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" id="navToggle">
+      <span class="sr-only">Open menu</span>
+      <span class="nav-toggle-bars" aria-hidden="true"></span>
+    </button>
+
+    <nav id="site-nav" class="site-nav" aria-label="Primary">
+      <a href="/apps/" aria-current={current === "apps" ? "page" : undefined}>Apps</a>
+      <a href="/compare/" aria-current={current === "compare" ? "page" : undefined}>Compare</a>
+      <a href="/blog/" aria-current={current === "blog" ? "page" : undefined}>Blog</a>
+      <a href="/about/" aria-current={current === "about" ? "page" : undefined}>About</a>
+      <a href="/contact/" class="btn btn-primary" aria-current={current === "contact" ? "page" : undefined}>Contact</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById("navToggle");
+  const nav = document.getElementById("site-nav");
+  if (toggle && nav) {
+    toggle.addEventListener("click", () => {
+      const isOpen = nav.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", String(isOpen));
+    });
+  }
+</script>

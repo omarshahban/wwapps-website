@@ -1,0 +1,140 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import FAQ from "../../components/FAQ.astro";
+import CTA from "../../components/CTA.astro";
+import Testimonial from "../../components/Testimonial.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const apps = await getCollection("apps");
+  return apps.map(app => ({ params: { slug: app.slug }, props: { app } }));
+}
+const { app } = Astro.props;
+const { Content } = await app.render();
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: app.data.name,
+  description: app.data.description,
+  applicationCategory: "BusinessApplication",
+  operatingSystem: "Web, Shopify",
+  offers: {
+    "@type": "Offer",
+    price: app.data.pricing?.free ? "0" : (app.data.pricing?.paid?.[0]?.price || "0"),
+    priceCurrency: "USD"
+  },
+  aggregateRating: app.data.rating ? {
+    "@type": "AggregateRating",
+    ratingValue: String(app.data.rating),
+    reviewCount: String(app.data.reviewCount || 1)
+  } : undefined,
+  url: `https://wwapps.io/apps/${app.slug}/`
+};
+---
+<BaseLayout
+  title={`${app.data.name}: ${app.data.tagline}`}
+  description={app.data.description}
+  current="apps"
+  schema={schema}
+>
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">{app.data.category}</p>
+      <h1>{app.data.name}</h1>
+      <p class="hero-lead">{app.data.tagline}</p>
+      <div class="hero-actions">
+        {app.data.shopifyUrl ? (
+          <a href={app.data.shopifyUrl} target="_blank" rel="noopener" class="btn btn-primary">Install on Shopify</a>
+        ) : (
+          <a href="/contact/" class="btn btn-primary">Join the waitlist</a>
+        )}
+        <a href="#pricing" class="btn btn-secondary">See pricing</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">What it does</p>
+        <h2>Everything included.</h2>
+      </div>
+      <ul class="checklist" style="columns: 1; column-gap: 32px; max-width: 900px;">
+        {app.data.features.map((f: string) => <li>{f}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  {app.data.pricing && (
+    <section id="pricing" class="section">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Pricing</p>
+          <h2>Free to start. Honest paid plans.</h2>
+        </div>
+        <div class="grid grid-2">
+          {app.data.pricing.free && (
+            <div class="card">
+              <span class="badge badge-live">Free</span>
+              <h3 style="margin-top:12px">Free plan</h3>
+              <p>{app.data.pricing.free}</p>
+            </div>
+          )}
+          {app.data.pricing.paid?.map((plan: any) => (
+            <div class="card">
+              <h3>{plan.name}</h3>
+              <p style="font-family:var(--font-serif);font-size:32px;color:var(--color-blush-deep);margin:0 0 12px">{plan.price}</p>
+              <ul class="checklist">
+                {plan.includes.map((i: string) => <li>{i}</li>)}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {app.data.testimonials && app.data.testimonials.length > 0 && (
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Reviews</p>
+          <h2>Real feedback from merchants using this app.</h2>
+        </div>
+        <div class="grid grid-3">
+          {app.data.testimonials.map((t: any) => (
+            <Testimonial quote={t.quote} author={t.author} rating={t.rating} />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="section">
+    <div class="container container-narrow prose">
+      <Content />
+    </div>
+  </section>
+
+  {app.data.faqs && app.data.faqs.length > 0 && (
+    <section class="section section-alt">
+      <div class="container container-narrow">
+        <FAQ items={app.data.faqs} />
+      </div>
+    </section>
+  )}
+
+  <section class="section">
+    <div class="container container-narrow">
+      <CTA
+        heading={`Try ${app.data.name} on your store today.`}
+        body="Free tier on every app. No credit card to install."
+        primaryLabel={app.data.shopifyUrl ? "Install on Shopify" : "Join the waitlist"}
+        primaryHref={app.data.shopifyUrl || "/contact/"}
+        secondaryLabel="See all apps"
+        secondaryHref="/apps/"
+      />
+    </div>
+  </section>
+</BaseLayout>

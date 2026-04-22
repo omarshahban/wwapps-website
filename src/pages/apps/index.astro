@@ -1,0 +1,51 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import AppCard from "../../components/AppCard.astro";
+import { getCollection } from "astro:content";
+const apps = (await getCollection("apps")).sort((a, b) => {
+  const order: Record<string, number> = { live: 0, beta: 1, "coming-soon": 2 };
+  return (order[a.data.status] ?? 9) - (order[b.data.status] ?? 9);
+});
+const liveApps = apps.filter(a => a.data.status === "live");
+const comingApps = apps.filter(a => a.data.status !== "live");
+---
+<BaseLayout
+  title="All Shopify apps by Win-Win Apps"
+  description="Browse every Shopify app we have shipped. Each one has a free tier and is priced fairly."
+  current="apps"
+>
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">Products</p>
+      <h1>Our Shopify apps.</h1>
+      <p class="hero-lead">We ship simple, focused apps. Install the ones that solve your problem today and ignore the rest.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      {liveApps.length > 0 && (
+        <>
+          <div class="section-head">
+            <h2>Live on the Shopify App Store</h2>
+            <p>Install in minutes. Free tier on every app.</p>
+          </div>
+          <div class="grid">
+            {liveApps.map(app => <AppCard app={app} />)}
+          </div>
+        </>
+      )}
+      {comingApps.length > 0 && (
+        <div style="margin-top:64px">
+          <div class="section-head">
+            <h2>Coming soon</h2>
+            <p>Apps currently in beta or in the App Store review queue.</p>
+          </div>
+          <div class="grid">
+            {comingApps.map(app => <AppCard app={app} />)}
+          </div>
+        </div>
+      )}
+    </div>
+  </section>
+</BaseLayout>

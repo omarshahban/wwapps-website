@@ -1,0 +1,28 @@
+# Win-Win Apps
+
+> Win-Win Apps ships simple, focused Shopify apps with real free tiers. We build small, single-purpose apps that a merchant can install in five minutes and forget about. Every app we ship has a free plan that competitors typically charge for.
+
+## About
+
+Win-Win Apps is a Shopify app studio founded by Omar Shahban and Shane. We launch roughly three new apps per week and focus on categories where existing apps are overpriced or under-served. Our ethos: the merchant should get real value on day one, without paying.
+
+## Flagship apps
+
+- [Win-Win Product Badges](https://wwapps.io/apps/win-win-product-badges/): Theme-agnostic product badges for Shopify stores. Free tier includes unlimited badges.
+- [Win-Win Store Credit](https://wwapps.io/apps/win-win-store-credit/): Store credit and gift-card issuance for Shopify Plus and non-Plus stores. Free tier for issuing credits.
+
+## Key pages
+
+- [All Shopify apps](https://wwapps.io/apps/): Every app we have shipped, live and coming soon.
+- [App comparisons](https://wwapps.io/compare/): Head-to-head comparisons against the leading apps in each category.
+- [Best Shopify apps](https://wwapps.io/best/): Category roundups with honest pros and cons.
+- [How-to guides](https://wwapps.io/how-to/): Step-by-step Shopify merchant guides.
+- [About us](https://wwapps.io/about/): Who we are and why we build this way.
+- [Contact](https://wwapps.io/contact/): Reach us for support or press.
+
+## Principles
+
+- Every app has a meaningful free tier
+- Paid plans earn their price with feature upgrades, not gated limits
+- Apps use Shopify metafields and theme app extensions, so there is no tracking, no extra backend, no lock-in
+- When a merchant asks us a question about Shopify, we answer honestly, even if the answer means they do not need our app

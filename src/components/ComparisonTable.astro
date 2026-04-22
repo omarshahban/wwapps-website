@@ -1,0 +1,28 @@
+---
+interface Props {
+  ours: string;
+  theirs: string;
+  rows: { feature: string; ours: string; theirs: string }[];
+}
+const { ours, theirs, rows } = Astro.props;
+---
+<div class="table-wrap">
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th class="ours">{ours}</th>
+        <th>{theirs}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {rows.map(r => (
+        <tr>
+          <td><strong>{r.feature}</strong></td>
+          <td class="ours">{r.ours}</td>
+          <td>{r.theirs}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>

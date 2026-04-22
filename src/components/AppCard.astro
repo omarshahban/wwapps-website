@@ -1,0 +1,28 @@
+---
+interface Props {
+  app: any;
+}
+const { app } = Astro.props;
+const status = app.data.status;
+const statusClass = status === "live" ? "badge-live" : status === "beta" ? "badge-beta" : "badge-soon";
+const statusLabel = status === "live" ? "Live" : status === "beta" ? "Beta" : "Coming soon";
+---
+<article class="card">
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:12px">
+    <h3><a href={`/apps/${app.slug}/`}>{app.data.name}</a></h3>
+    <span class={`badge ${statusClass}`}>{statusLabel}</span>
+  </div>
+  <p class="card-meta">{app.data.category}</p>
+  <p>{app.data.tagline}</p>
+  {app.data.features && app.data.features.length > 0 && (
+    <ul class="checklist">
+      {app.data.features.slice(0, 3).map((f: string) => <li>{f}</li>)}
+    </ul>
+  )}
+  <div class="card-actions">
+    <a href={`/apps/${app.slug}/`} class="btn btn-secondary">Learn more</a>
+    {app.data.shopifyUrl && (
+      <a href={app.data.shopifyUrl} target="_blank" rel="noopener" class="btn btn-primary">Install</a>
+    )}
+  </div>
+</article>
