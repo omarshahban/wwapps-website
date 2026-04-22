@@ -32,6 +32,7 @@ entries:
     cons:
       - "Complex setup"
       - "Expensive at scale"
+    url: "https://apps.shopify.com/smile-io"
   - rank: 3
     name: "Rise.ai"
     tagline: "Gift card plus credit plus rewards."
@@ -43,6 +44,7 @@ entries:
       - "Full gift card storefront"
     cons:
       - "Overkill for pure credit"
+    url: "https://apps.shopify.com/gift-card-loyalty-program"
 faqs:
   - q: "Is store credit better than discount codes for retention?"
     a: "Usually yes. Credit is customer-specific and applies at checkout automatically, so it cannot leak via coupon sites. Discount codes get shared publicly and erode margin across shoppers who would have paid full price."

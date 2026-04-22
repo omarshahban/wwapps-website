@@ -18,6 +18,7 @@ entries:
       - "Collection page support"
     cons:
       - "New launch"
+    url: "/apps/made-in/"
   - rank: 2
     name: "Product Origin Labels"
     tagline: "Origin labels with emoji flag icons."
@@ -30,6 +31,7 @@ entries:
     cons:
       - "No free plan"
       - "Emoji-only flags"
+    url: "https://apps.shopify.com/product-badges-label-design"
   - rank: 3
     name: "Country Flag & Origin Badge"
     tagline: "Flag badge with country name."
@@ -41,6 +43,7 @@ entries:
       - "Free tier"
     cons:
       - "Limited customization"
+    url: "https://apps.shopify.com/countrybadge"
 faqs:
   - q: "Does showing country of origin affect buying decisions?"
     a: "For a subset of categories, yes. Apparel, food, cosmetics, and luxury goods show measurable lift when country of origin is visible. For commodity goods the effect is smaller."

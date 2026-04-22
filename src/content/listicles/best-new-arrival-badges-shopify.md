@@ -30,6 +30,7 @@ entries:
       - "Good template library"
     cons:
       - "No truly free plan"
+    url: "https://apps.shopify.com/badgify-3"
   - rank: 3
     name: "BSS: Product Labels & Badges"
     tagline: "Rule-based labels with New options."
@@ -41,6 +42,7 @@ entries:
       - "Rules engine"
     cons:
       - "Adds a third-party script"
+    url: "https://apps.shopify.com/product-labels-by-bss"
 faqs:
   - q: "How long should a New arrival badge stay on a product?"
     a: "Most stores use 14 to 30 days. Product Badges by Win-Win Apps can auto-expire the New badge after N days so you do not have to manually remove it."

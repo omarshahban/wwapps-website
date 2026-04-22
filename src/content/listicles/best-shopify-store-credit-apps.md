@@ -20,6 +20,7 @@ entries:
     cons:
       - "No full loyalty program, intentionally"
       - "Newer app, smaller review count"
+    url: "https://apps.shopify.com/win-win-store-credit"
   - rank: 2
     name: "Rise.ai"
     tagline: "Full gift card and store credit stack."
@@ -33,6 +34,7 @@ entries:
     cons:
       - "Expensive at higher tiers"
       - "Overkill for merchants that only need store credit"
+    url: "https://apps.shopify.com/gift-card-loyalty-program"
   - rank: 3
     name: "Shopify native store credit"
     tagline: "Built into Shopify checkout on Plus."
@@ -60,6 +62,7 @@ entries:
     cons:
       - "Expensive"
       - "Complex setup if you only need credit"
+    url: "https://apps.shopify.com/growave"
 faqs:
   - q: "Can I offer store credit on Shopify Basic?"
     a: "Yes. Shopify's built-in store credit is Plus-only, but third-party apps like Win-Win Store Credit let you issue and redeem credit on any plan, including Starter and Basic."

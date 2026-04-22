@@ -18,6 +18,7 @@ entries:
       - "Collection page display"
     cons:
       - "Newer app"
+    url: "/apps/made-in/"
   - rank: 2
     name: "USA Made Badge"
     tagline: "Single-country Made In USA badge."

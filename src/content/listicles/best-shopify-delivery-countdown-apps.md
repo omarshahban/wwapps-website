@@ -18,6 +18,7 @@ entries:
       - "Customizable copy"
     cons:
       - "No standalone countdown widget"
+    url: "/apps/arrively/"
   - rank: 2
     name: "Urgency Pack"
     tagline: "Countdown plus scarcity popups."
@@ -29,6 +30,7 @@ entries:
       - "Multiple scarcity modules"
     cons:
       - "Can feel spammy"
+    url: "https://apps.shopify.com/urgency-pack-ultimate"
   - rank: 3
     name: "Hurrify Countdown Timer"
     tagline: "Standalone countdown widget."
@@ -40,6 +42,7 @@ entries:
       - "Free tier"
     cons:
       - "No ETA integration"
+    url: "https://apps.shopify.com/hurrify-countdown-timer"
 faqs:
   - q: "Is a countdown timer annoying to shoppers?"
     a: "A cut-off countdown is useful because it answers a real question: will my order ship today. A fake countdown to a nonexistent deadline is manipulative and erodes trust. Use countdowns honestly."

@@ -32,6 +32,7 @@ entries:
     cons:
       - "No real free tier"
       - "Slower storefront render"
+    url: "https://apps.shopify.com/badgify-3"
   - rank: 3
     name: "Product Labels & Badges Pro"
     tagline: "Icon library plus image upload badges."
@@ -45,6 +46,7 @@ entries:
     cons:
       - "Adds a script tag to every page"
       - "Flicker on load reported"
+    url: "https://apps.shopify.com/product-labels-badges-pro-1"
   - rank: 4
     name: "Sales Pop Master"
     tagline: "Sale badges plus social proof popups in one."
@@ -57,6 +59,7 @@ entries:
     cons:
       - "Free tier has a watermark"
       - "Heavier than a pure badge app"
+    url: "https://apps.shopify.com/sales-pop-master"
 faqs:
   - q: "What is the best free Sale badge app for Shopify?"
     a: "Product Badges by Win-Win Apps is the only major Sale badge app with a truly unlimited free tier. Badgify limits its free trial and Sales Pop Master adds a watermark on its free plan."

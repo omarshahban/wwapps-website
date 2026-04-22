@@ -18,6 +18,7 @@ entries:
       - "Holiday calendar"
     cons:
       - "Newer app"
+    url: "/apps/arrively/"
   - rank: 2
     name: "Shop Delivery Date & Time"
     tagline: "Delivery windows for local and same-day."
@@ -29,6 +30,7 @@ entries:
       - "Date picker UX"
     cons:
       - "No free plan"
+    url: "https://apps.shopify.com/order-delivery-date-time"
   - rank: 3
     name: "Order Deadline"
     tagline: "Countdown and cut-off display."
@@ -40,6 +42,7 @@ entries:
       - "Free option"
     cons:
       - "Limited zone logic"
+    url: "https://apps.shopify.com/order-deadline-2"
 faqs:
   - q: "What is the difference between a shipping date and a delivery date?"
     a: "Shipping date is when the order leaves your warehouse. Delivery date is when the customer receives it. ETA apps typically show the delivery date, which is what the shopper cares about."

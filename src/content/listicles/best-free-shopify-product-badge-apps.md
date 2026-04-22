@@ -20,6 +20,7 @@ entries:
     cons:
       - "New entrant, smaller review count than incumbents"
       - "No animated badges on free tier"
+    url: "https://apps.shopify.com/win-win-product-badges"
   - rank: 2
     name: "Badgify"
     tagline: "Mature category leader with deep template library."
@@ -34,6 +35,7 @@ entries:
       - "No real free tier"
       - "Free trial requires card"
       - "Reviews flag slow storefront render"
+    url: "https://apps.shopify.com/badgify-3"
   - rank: 3
     name: "Product Labels & Badges Pro"
     tagline: "Icon library and image upload badges."
@@ -47,6 +49,7 @@ entries:
     cons:
       - "Adds a third-party script to every page"
       - "Reviews flag occasional badge flicker on load"
+    url: "https://apps.shopify.com/product-labels-badges-pro-1"
   - rank: 4
     name: "Sales Pop Master"
     tagline: "Badge plus social proof popups in one."
@@ -59,6 +62,7 @@ entries:
     cons:
       - "Free plan has a watermark"
       - "Not a pure badge app, may be overkill"
+    url: "https://apps.shopify.com/sales-pop-master"
 faqs:
   - q: "What is the best free Shopify badge app?"
     a: "Win-Win Product Badges offers unlimited badges, unlimited products, rule-based targeting and no code on its free tier, which is the widest free offering in the category right now."

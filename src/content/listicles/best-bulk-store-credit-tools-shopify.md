@@ -32,6 +32,7 @@ entries:
     cons:
       - "Expensive"
       - "Overkill for pure credit"
+    url: "https://apps.shopify.com/gift-card-loyalty-program"
   - rank: 3
     name: "Shopify native store credit"
     tagline: "Built-in on Plus, no bulk CSV tools."

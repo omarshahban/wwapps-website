@@ -17,6 +17,7 @@ entries:
       - "Full flag library"
     cons:
       - "Newer app"
+    url: "/apps/made-in/"
   - rank: 2
     name: "Origin Country Labels"
     tagline: "Label-based origin display."
@@ -28,6 +29,7 @@ entries:
       - "Cheap"
     cons:
       - "No free plan"
+    url: "https://apps.shopify.com/countrybadge"
 faqs:
   - q: "Can I use country of origin for EU regulatory compliance?"
     a: "The EU and some US states require origin disclosure for certain product categories. Made In by Win-Win Apps can help display the information but you should confirm with your legal team whether it satisfies regulatory language requirements."

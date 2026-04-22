@@ -18,6 +18,7 @@ entries:
       - "Holiday and cut-off logic built in"
     cons:
       - "New launch, smaller review count"
+    url: "/apps/arrively/"
   - rank: 2
     name: "Shipping Timeline"
     tagline: "Product page ETA widget."
@@ -29,6 +30,7 @@ entries:
       - "Multiple carriers supported"
     cons:
       - "No real free plan"
+    url: "https://apps.shopify.com/delivery-timer-order-timeline"
   - rank: 3
     name: "Estimated Delivery Date by Appseven"
     tagline: "Simple ETA with limited zones."
@@ -40,6 +42,7 @@ entries:
       - "Easy setup"
     cons:
       - "Zone rules limited"
+    url: "https://apps.shopify.com/estimated-delivery-days"
 faqs:
   - q: "Does showing an ETA actually improve conversion?"
     a: "Third-party A/B tests show a 5 to 15 percent lift when ETA is visible on the product page versus hidden in checkout or policy pages. The lift is largest for categories where delivery speed is decision-critical, such as gifts and time-sensitive goods."
