@@ -1,0 +1,77 @@
+---
+interface Props {
+  leftLabel?: string;
+  rightLabel?: string;
+}
+const { leftLabel = "Without the app", rightLabel = "With the app" } = Astro.props;
+---
+<div class="compare-split" aria-hidden="true">
+  <div class="compare-split-col">
+    <div class="compare-split-label compare-split-label-dim">{leftLabel}</div>
+    <div class="compare-split-body">
+      <slot name="left" />
+    </div>
+  </div>
+  <div class="compare-split-arrow" aria-hidden="true">→</div>
+  <div class="compare-split-col">
+    <div class="compare-split-label compare-split-label-hot">{rightLabel}</div>
+    <div class="compare-split-body">
+      <slot name="right" />
+    </div>
+  </div>
+</div>
+
+<style>
+.compare-split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  align-items: center;
+  margin: 32px 0;
+}
+.compare-split-arrow { display: none; }
+@media (min-width: 740px) {
+  .compare-split {
+    grid-template-columns: 1fr auto 1fr;
+    gap: 24px;
+  }
+  .compare-split-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    color: #a53630;
+  }
+}
+.compare-split-col {
+  background: #fff;
+  border: 1px solid rgba(58, 46, 42, 0.1);
+  border-radius: 14px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.compare-split-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  margin-bottom: 16px;
+}
+.compare-split-label-dim {
+  background: rgba(58, 46, 42, 0.08);
+  color: rgba(58, 46, 42, 0.65);
+}
+.compare-split-label-hot {
+  background: #a53630;
+  color: #fff;
+}
+.compare-split-body {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+</style>

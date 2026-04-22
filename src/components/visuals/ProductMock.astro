@@ -1,0 +1,81 @@
+---
+interface Props {
+  title: string;
+  price: string;
+  comparePrice?: string;
+  imageColor?: string;
+  imageEmoji?: string;
+  subtitle?: string;
+}
+const { title, price, comparePrice, imageColor = "#f4c89a", imageEmoji = "", subtitle } = Astro.props;
+---
+<div class="product-mock" aria-hidden="true">
+  <div class="product-mock-image" style={`background:${imageColor}`}>
+    <slot name="top-left" />
+    <slot name="top-right" />
+    {imageEmoji && <span class="product-mock-emoji">{imageEmoji}</span>}
+    <slot name="image-overlay" />
+  </div>
+  <div class="product-mock-body">
+    <h4 class="product-mock-title">{title}</h4>
+    {subtitle && <p class="product-mock-sub">{subtitle}</p>}
+    <div class="product-mock-price">
+      <span class="product-mock-current">{price}</span>
+      {comparePrice && <span class="product-mock-compare">{comparePrice}</span>}
+    </div>
+    <slot name="below-price" />
+  </div>
+</div>
+
+<style>
+.product-mock {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 10px rgba(58, 46, 42, 0.08);
+  overflow: hidden;
+  width: 100%;
+  max-width: 260px;
+  font-family: var(--font-sans, sans-serif);
+}
+.product-mock-image {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.product-mock-emoji {
+  font-size: 72px;
+  line-height: 1;
+}
+.product-mock-body {
+  padding: 14px 16px 16px;
+}
+.product-mock-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #3a2e2a;
+  margin: 0 0 4px;
+  line-height: 1.3;
+}
+.product-mock-sub {
+  font-size: 12px;
+  color: rgba(58, 46, 42, 0.6);
+  margin: 0 0 8px;
+}
+.product-mock-price {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+.product-mock-current {
+  font-size: 16px;
+  font-weight: 700;
+  color: #3a2e2a;
+}
+.product-mock-compare {
+  font-size: 13px;
+  color: rgba(58, 46, 42, 0.5);
+  text-decoration: line-through;
+}
+</style>

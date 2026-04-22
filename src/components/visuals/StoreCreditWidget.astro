@@ -1,0 +1,70 @@
+---
+interface Props {
+  balance?: string;
+  customerName?: string;
+}
+const { balance = "$42.00", customerName = "Alex" } = Astro.props;
+---
+<div class="credit-widget" aria-hidden="true">
+  <div class="credit-widget-head">
+    <span class="credit-widget-dot"></span>
+    <span class="credit-widget-label">Store credit</span>
+  </div>
+  <div class="credit-widget-balance">{balance}</div>
+  <div class="credit-widget-sub">Available for {customerName}</div>
+  <button class="credit-widget-btn" type="button" tabindex="-1">Apply at checkout</button>
+</div>
+
+<style>
+.credit-widget {
+  background: #fff;
+  border: 1px solid rgba(58, 46, 42, 0.12);
+  border-radius: 14px;
+  padding: 20px 22px;
+  box-shadow: 0 4px 14px rgba(58, 46, 42, 0.06);
+  max-width: 300px;
+}
+.credit-widget-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.credit-widget-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #2e6b43;
+  box-shadow: 0 0 0 3px rgba(46, 107, 67, 0.15);
+}
+.credit-widget-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(58, 46, 42, 0.7);
+  font-weight: 700;
+}
+.credit-widget-balance {
+  font-family: var(--font-serif, serif);
+  font-size: 34px;
+  color: #3a2e2a;
+  line-height: 1;
+  margin-bottom: 2px;
+}
+.credit-widget-sub {
+  font-size: 13px;
+  color: rgba(58, 46, 42, 0.6);
+  margin-bottom: 16px;
+}
+.credit-widget-btn {
+  background: #3a2e2a;
+  color: #fff;
+  border: 0;
+  border-radius: 999px;
+  padding: 10px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: default;
+  width: 100%;
+}
+</style>

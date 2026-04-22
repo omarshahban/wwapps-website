@@ -11,6 +11,9 @@ export async function getStaticPaths() {
 }
 const { post } = Astro.props;
 const { Content } = await post.render();
+
+const apps = await getCollection("apps");
+const ourApp = post.data.ourAppSlug ? apps.find(a => a.slug === post.data.ourAppSlug) : apps.find(a => a.data.name === post.data.ourApp);
 ---
 <BaseLayout
   title={`${post.data.title}: Win-Win Apps`}
@@ -22,7 +25,37 @@ const { Content } = await post.render();
       <p class="eyebrow">Comparison</p>
       <h1>{post.data.title}</h1>
       <p class="hero-lead">{post.data.description}</p>
-      <p style="margin-top:12px;font-size:14px;color:var(--color-text-muted)">Updated {post.data.updatedAt.toISOString().slice(0, 10)}</p>
+      <p style="margin-top:12px;font-size:14px;color:var(--color-brown-secondary)">Updated {post.data.updatedAt.toISOString().slice(0, 10)}</p>
+
+      <div class="compare-vs-row">
+        {ourApp && (
+          <a class="compare-vs-card" href={`/apps/${ourApp.slug}/`}>
+            {ourApp.data.logo && <img src={ourApp.data.logo} alt="" width="40" height="40" />}
+            <span class="compare-vs-text">
+              <small>Our app</small>
+              <strong>{post.data.ourApp}</strong>
+            </span>
+          </a>
+        )}
+        <span class="compare-vs-sep">vs</span>
+        {post.data.competitorUrl ? (
+          <a class="compare-vs-card" href={post.data.competitorUrl} target="_blank" rel="noopener">
+            <span class="compare-vs-logo-fallback">{post.data.competitor.charAt(0)}</span>
+            <span class="compare-vs-text">
+              <small>Competitor</small>
+              <strong>{post.data.competitor} ↗</strong>
+            </span>
+          </a>
+        ) : (
+          <span class="compare-vs-card">
+            <span class="compare-vs-logo-fallback">{post.data.competitor.charAt(0)}</span>
+            <span class="compare-vs-text">
+              <small>Competitor</small>
+              <strong>{post.data.competitor}</strong>
+            </span>
+          </span>
+        )}
+      </div>
     </div>
   </section>
 
@@ -37,6 +70,9 @@ const { Content } = await post.render();
         theirs={post.data.competitor}
         rows={post.data.matrix}
       />
+      {post.data.competitorUrl && (
+        <p style="margin-top:14px;font-size:14px;color:var(--color-brown-secondary)">Competitor link: <a href={post.data.competitorUrl} target="_blank" rel="noopener">View {post.data.competitor} on the Shopify App Store ↗</a></p>
+      )}
     </div>
   </section>
 
@@ -59,11 +95,67 @@ const { Content } = await post.render();
       <CTA
         heading={`Try ${post.data.ourApp} on your store today.`}
         body="Free tier on every app. No credit card to install."
-        primaryLabel="See the app"
-        primaryHref="/apps/"
-        secondaryLabel="Contact us"
-        secondaryHref="/contact/"
+        primaryLabel={ourApp && ourApp.data.shopifyUrl ? `Install ${post.data.ourApp}` : "See the app"}
+        primaryHref={ourApp && ourApp.data.shopifyUrl ? ourApp.data.shopifyUrl : (ourApp ? `/apps/${ourApp.slug}/` : "/apps/")}
+        secondaryLabel="See all apps"
+        secondaryHref="/apps/"
       />
     </div>
   </section>
 </BaseLayout>
+
+<style>
+.compare-vs-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  margin-top: 24px;
+}
+.compare-vs-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  background: #fff;
+  border: 1px solid rgba(58, 46, 42, 0.15);
+  border-radius: 12px;
+  text-decoration: none;
+  color: #3a2e2a;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+a.compare-vs-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(58, 46, 42, 0.08);
+  text-decoration: none;
+}
+.compare-vs-card img {
+  border-radius: 8px;
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+}
+.compare-vs-logo-fallback {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: #f2b8b566;
+  color: #a53630;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 20px;
+  font-family: var(--font-serif);
+}
+.compare-vs-text { display: flex; flex-direction: column; line-height: 1.1; }
+.compare-vs-text small { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(58, 46, 42, 0.6); margin-bottom: 2px; }
+.compare-vs-text strong { font-size: 15px; }
+.compare-vs-sep {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  color: var(--color-blush-deep);
+  font-style: italic;
+  padding: 0 6px;
+}
+</style>

@@ -3,6 +3,9 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import FAQ from "../../components/FAQ.astro";
 import CTA from "../../components/CTA.astro";
 import Testimonial from "../../components/Testimonial.astro";
+import AppHeroVisual from "../../components/visuals/AppHeroVisual.astro";
+import StepFlow from "../../components/visuals/StepFlow.astro";
+import StatBlock from "../../components/visuals/StatBlock.astro";
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
@@ -24,6 +27,58 @@ const relatedListicles = allListicles.filter(l =>
 
 const relatedCompares = allCompares.filter(c => c.data.ourApp === app.slug).slice(0, 5);
 const relatedHowtos = allHowtos.filter(h => h.data.relatedApp === app.slug).slice(0, 8);
+
+const stepMap: Record<string, any[]> = {
+  "win-win-product-badges": [
+    { icon: "⚙️", title: "Install in 30 seconds", body: "One click install from the Shopify App Store. No theme edits, no developers." },
+    { icon: "🎨", title: "Pick a badge style", body: "Choose from our library or build a custom badge with your brand colors." },
+    { icon: "🎯", title: "Target by rule", body: "Show badges by tag, collection, price drop, or inventory level. Zero manual work." }
+  ],
+  "win-win-store-credit": [
+    { icon: "📥", title: "Upload a CSV", body: "Bulk issue credit to a segment of customers in under a minute. No per-customer clicks." },
+    { icon: "💳", title: "Customers see balance", body: "Credit shows on account pages and at checkout, styled to match your theme." },
+    { icon: "🧾", title: "Auto-apply at checkout", body: "Credit applies on click. Full audit log for every issue and redemption." }
+  ],
+  "arrively": [
+    { icon: "📅", title: "Pick your cutoff", body: "Set the daily order cutoff time per zone. Weekends and holidays respected automatically." },
+    { icon: "🚚", title: "Dates show on products", body: "Shoppers see the earliest delivery date right below Add to Cart, before they bounce." },
+    { icon: "📦", title: "Dates carry to checkout", body: "ETA is confirmed on cart, checkout, and the confirmation email. No surprises." }
+  ],
+  "made-in": [
+    { icon: "🌍", title: "Tag products with origin", body: "Bulk-assign country of origin by collection, tag, or CSV. One-time setup." },
+    { icon: "🏷️", title: "Badges render on storefront", body: "Flag + country shows on product cards and product pages. Theme-agnostic, no code." },
+    { icon: "🛒", title: "Filter by country", body: "Shoppers can filter Made In USA, Made in Italy, anywhere you sell from. Good for trade-war SEO." }
+  ]
+};
+const steps = stepMap[app.slug] || null;
+
+const statMap: Record<string, any[]> = {
+  "win-win-product-badges": [
+    { value: "Free", label: "Unlimited badges" },
+    { value: "30s", label: "Install time" },
+    { value: "0kb", label: "Theme edits needed" },
+    { value: "$4.99", label: "Pro plan" }
+  ],
+  "win-win-store-credit": [
+    { value: "CSV", label: "Bulk issuance" },
+    { value: "Free", label: "Starter tier" },
+    { value: "2 min", label: "Average setup" },
+    { value: "∞", label: "Customers on free" }
+  ],
+  "arrively": [
+    { value: "Zones", label: "Per-region ETAs" },
+    { value: "Auto", label: "Holiday skip" },
+    { value: "PDP", label: "Dates on product page" },
+    { value: "Free", label: "Up to 50 orders" }
+  ],
+  "made-in": [
+    { value: "240+", label: "Flags supported" },
+    { value: "Tag", label: "Or collection rules" },
+    { value: "Cards", label: "PDP + collection" },
+    { value: "Free", label: "Starter tier" }
+  ]
+};
+const stats = statMap[app.slug] || null;
 
 const schema = {
   "@context": "https://schema.org",
@@ -51,29 +106,52 @@ const schema = {
   current="apps"
   schema={schema}
 >
-  <section class="hero">
-    <div class="container">
-      <p class="eyebrow">{app.data.category}</p>
-      <h1>{app.data.name}</h1>
-      <p class="hero-lead">{app.data.tagline}</p>
-      <div class="hero-actions">
-        {app.data.shopifyUrl ? (
-          <a href={app.data.shopifyUrl} target="_blank" rel="noopener" class="btn btn-primary">Install on Shopify</a>
-        ) : (
-          <a href="/contact/" class="btn btn-primary">Join the waitlist</a>
-        )}
-        <a href="#pricing" class="btn btn-secondary">See pricing</a>
+  <section class="hero app-hero">
+    <div class="container app-hero-grid">
+      <div class="app-hero-copy">
+        <p class="eyebrow">{app.data.category}</p>
+        <h1>{app.data.name}</h1>
+        <p class="hero-lead">{app.data.tagline}</p>
+        <div class="hero-actions">
+          {app.data.shopifyUrl ? (
+            <a href={app.data.shopifyUrl} target="_blank" rel="noopener" class="btn btn-primary">Install on Shopify</a>
+          ) : (
+            <a href="/contact/" class="btn btn-primary">Join the waitlist</a>
+          )}
+          <a href="#pricing" class="btn btn-secondary">See pricing</a>
+        </div>
       </div>
+      <AppHeroVisual slug={app.slug} />
     </div>
   </section>
 
-  <section class="section section-alt">
+  {stats && (
+    <section class="section section-thin">
+      <div class="container container-narrow">
+        <StatBlock stats={stats} />
+      </div>
+    </section>
+  )}
+
+  {steps && (
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">How it works</p>
+          <h2>Three steps, no developer needed.</h2>
+        </div>
+        <StepFlow steps={steps} />
+      </div>
+    </section>
+  )}
+
+  <section class="section">
     <div class="container">
       <div class="section-head">
         <p class="eyebrow">What it does</p>
         <h2>Everything included.</h2>
       </div>
-      <ul class="checklist" style="columns: 1; column-gap: 32px; max-width: 900px;">
+      <ul class="checklist feature-list" style="max-width: 960px;">
         {app.data.features.map((f: string) => <li>{f}</li>)}
       </ul>
     </div>

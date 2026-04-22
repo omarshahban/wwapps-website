@@ -1,0 +1,94 @@
+---
+import ProductMock from "./ProductMock.astro";
+import BadgePill from "./BadgePill.astro";
+import StoreCreditWidget from "./StoreCreditWidget.astro";
+import DeliveryLine from "./DeliveryLine.astro";
+import OriginBadge from "./OriginBadge.astro";
+
+interface Props {
+  slug: string;
+}
+const { slug } = Astro.props;
+---
+<div class="app-hero-visual" aria-hidden="true">
+  {slug === "win-win-product-badges" && (
+    <div class="visual-stack">
+      <ProductMock title="Classic denim shirt" price="$68" comparePrice="$95" imageColor="#c9dbe9" imageEmoji="👕">
+        <BadgePill slot="top-left" label="SALE" variant="sale" position="tl" />
+      </ProductMock>
+      <ProductMock title="Cold brew bottle" price="$22" imageColor="#d9c9a3" imageEmoji="🫙">
+        <BadgePill slot="top-left" label="NEW" variant="new" position="tl" />
+        <BadgePill slot="top-right" label="★ BEST SELLER" variant="bestseller" position="tr" />
+      </ProductMock>
+    </div>
+  )}
+  {slug === "win-win-store-credit" && (
+    <div class="visual-stack visual-stack-credit">
+      <StoreCreditWidget balance="$42.00" customerName="Alex" />
+      <div class="credit-flow-line" aria-hidden="true">
+        <div class="credit-flow-row"><span>Returned coat</span><strong>+ $24.00</strong></div>
+        <div class="credit-flow-row"><span>Loyalty top-up</span><strong>+ $10.00</strong></div>
+        <div class="credit-flow-row"><span>Birthday gift</span><strong>+ $8.00</strong></div>
+      </div>
+    </div>
+  )}
+  {slug === "arrively" && (
+    <div class="visual-stack">
+      <ProductMock title="Merino travel crew" price="$118" imageColor="#e3d5c1" imageEmoji="🧥">
+        <div slot="below-price" style="margin-top:12px">
+          <DeliveryLine date="Thursday, Apr 30" cutoff="Order in 3h 12m" compact />
+        </div>
+      </ProductMock>
+    </div>
+  )}
+  {slug === "made-in" && (
+    <div class="visual-stack">
+      <ProductMock title="Hand-thrown ceramic mug" price="$34" imageColor="#d8c9b8" imageEmoji="☕">
+        <div slot="image-overlay">
+          <span class="origin-badge-pos"><OriginBadge country="Portugal" flag="🇵🇹" /></span>
+        </div>
+      </ProductMock>
+      <ProductMock title="Cast iron skillet" price="$82" imageColor="#b4a494" imageEmoji="🍳">
+        <div slot="image-overlay">
+          <span class="origin-badge-pos"><OriginBadge country="USA" flag="🇺🇸" /></span>
+        </div>
+      </ProductMock>
+    </div>
+  )}
+</div>
+
+<style>
+.app-hero-visual { display: flex; justify-content: center; }
+.visual-stack {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  width: 100%;
+  max-width: 360px;
+}
+@media (min-width: 500px) {
+  .visual-stack { grid-template-columns: repeat(2, 1fr); max-width: 540px; }
+}
+.visual-stack-credit { grid-template-columns: 1fr !important; max-width: 320px; }
+.credit-flow-line {
+  background: #fff;
+  border: 1px solid rgba(58, 46, 42, 0.12);
+  border-radius: 12px;
+  padding: 14px 18px;
+}
+.credit-flow-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(58, 46, 42, 0.08);
+  font-size: 14px;
+  color: #3a2e2a;
+}
+.credit-flow-row:last-child { border-bottom: 0; }
+.credit-flow-row strong { color: #2e6b43; font-weight: 700; }
+.origin-badge-pos {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+</style>

@@ -1,0 +1,46 @@
+---
+interface Props {
+  label: string;
+  variant?: "sale" | "new" | "bestseller" | "soldout" | "restock" | "made" | "origin" | "neutral";
+  position?: "tl" | "tr" | "bl" | "br" | "inline";
+  icon?: string;
+}
+const { label, variant = "sale", position = "inline", icon } = Astro.props;
+const posClass = position === "tl" ? "pos-tl" : position === "tr" ? "pos-tr" : position === "bl" ? "pos-bl" : position === "br" ? "pos-br" : "";
+---
+<span class={`badge-pill badge-${variant} ${posClass}`}>
+  {icon && <span class="badge-pill-icon">{icon}</span>}
+  {label}
+</span>
+
+<style>
+.badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1;
+  white-space: nowrap;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+.pos-tl, .pos-tr, .pos-bl, .pos-br { position: absolute; }
+.pos-tl { top: 10px; left: 10px; }
+.pos-tr { top: 10px; right: 10px; }
+.pos-bl { bottom: 10px; left: 10px; }
+.pos-br { bottom: 10px; right: 10px; }
+
+.badge-sale      { background: #a53630; color: #fff; }
+.badge-new       { background: #2e6b43; color: #fff; }
+.badge-bestseller{ background: #c87d2a; color: #fff; }
+.badge-soldout   { background: #3a2e2a; color: #fff; }
+.badge-restock   { background: #4a7dbf; color: #fff; }
+.badge-made      { background: #fff; color: #3a2e2a; border: 1px solid #3a2e2a; }
+.badge-origin    { background: rgba(255,255,255,0.95); color: #3a2e2a; }
+.badge-neutral   { background: rgba(255,255,255,0.95); color: #3a2e2a; }
+.badge-pill-icon { font-size: 14px; line-height: 1; }
+</style>

@@ -26,7 +26,7 @@ const soon = apps.filter(a => a.data.status === "coming-soon").length;
       <p>The Shopify App Store has 8,000+ apps but the long tail of mid-volume categories is poorly served. Most top apps are overpriced, overbuilt, and slow to ship. We target niches where 2 to 5 apps split the market and the leaders have obvious 1-2 star complaints. We enter with a free tier that covers what they gate behind 9 to 29 dollars a month.</p>
 
       <h2>Why this works</h2>
-      <p>Each app is self-contained. We use Shopify metafields and theme app extensions so there is no backend database, no webhooks at scale, and no email infrastructure to maintain. That keeps cost-of-goods near zero and lets one engineer maintain the full portfolio.</p>
+      <p>We deliberately pick niches whose core feature can run on a lean stack. Where it makes sense, Shopify metafields and theme app extensions handle most of the logic on Shopify's infrastructure. When a real backend is needed, it is small and stateless. One deployment, a modest database, no scale-out email infrastructure. That is the difference between running costs of 10 dollars and 1,000 dollars a month per app, and it compounds across a portfolio.</p>
 
       <h2>Velocity</h2>
       <p>Our target is 10 new apps per month, each going from research to shipped in 3 days. We currently have {live} live, {soon} in the pipeline, and a 100-app blueprint mapped across conversion, merchandising, loyalty, fulfillment, and operations categories.</p>
