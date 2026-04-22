@@ -4,6 +4,8 @@ slug: "win-win-store-credit-vs-rise-ai"
 description: "Rise.ai is the big name in the Shopify store credit and gift card space. Here is an honest side-by-side so you can pick the right one."
 ourApp: "Win-Win Store Credit"
 competitor: "Rise.ai"
+competitorUrl: "https://apps.shopify.com/gift-card-loyalty-program"
+competitorLogo: "/icons/competitors/rise-ai.png"
 publishedAt: 2026-04-22
 updatedAt: 2026-04-22
 verdictSummary: "Win-Win Store Credit is the better pick if you want simple bulk store credit on a non-Plus plan without paying for a full loyalty suite. Rise.ai is the better pick if you also need a full gift card platform and have the budget for it."

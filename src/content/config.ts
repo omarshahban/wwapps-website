@@ -80,6 +80,7 @@ const comparisons = defineCollection({
     ourAppSlug: z.string().optional(),
     competitor: z.string(),
     competitorUrl: z.string().url().optional(),
+    competitorLogo: z.string().optional(),
     publishedAt: z.coerce.date(),
     updatedAt: z.coerce.date(),
     verdictSummary: z.string(),

@@ -40,7 +40,11 @@ const ourApp = post.data.ourAppSlug ? apps.find(a => a.slug === post.data.ourApp
         <span class="compare-vs-sep">vs</span>
         {post.data.competitorUrl ? (
           <a class="compare-vs-card" href={post.data.competitorUrl} target="_blank" rel="noopener">
-            <span class="compare-vs-logo-fallback">{post.data.competitor.charAt(0)}</span>
+            {post.data.competitorLogo ? (
+              <img src={post.data.competitorLogo} alt={`${post.data.competitor} logo`} width="40" height="40" loading="lazy" />
+            ) : (
+              <span class="compare-vs-logo-fallback">{post.data.competitor.charAt(0)}</span>
+            )}
             <span class="compare-vs-text">
               <small>Competitor</small>
               <strong>{post.data.competitor} ↗</strong>
@@ -48,7 +52,11 @@ const ourApp = post.data.ourAppSlug ? apps.find(a => a.slug === post.data.ourApp
           </a>
         ) : (
           <span class="compare-vs-card">
-            <span class="compare-vs-logo-fallback">{post.data.competitor.charAt(0)}</span>
+            {post.data.competitorLogo ? (
+              <img src={post.data.competitorLogo} alt={`${post.data.competitor} logo`} width="40" height="40" loading="lazy" />
+            ) : (
+              <span class="compare-vs-logo-fallback">{post.data.competitor.charAt(0)}</span>
+            )}
             <span class="compare-vs-text">
               <small>Competitor</small>
               <strong>{post.data.competitor}</strong>

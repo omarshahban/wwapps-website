@@ -4,6 +4,8 @@ slug: "win-win-product-badges-vs-badgify"
 description: "The honest comparison between our free badge app and the category incumbent. Where each one wins, where each one loses."
 ourApp: "Win-Win Product Badges"
 competitor: "Badgify"
+competitorUrl: "https://apps.shopify.com/badgify-3"
+competitorLogo: "/icons/competitors/badgify.jpg"
 publishedAt: 2026-04-22
 updatedAt: 2026-04-22
 verdictSummary: "Win-Win Product Badges is the better pick if you want unlimited badges on a real free tier and a clean theme app embed install. Badgify wins if you specifically need their large template library and are happy to pay."
