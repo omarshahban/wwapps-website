@@ -1,0 +1,87 @@
+---
+interface Props {
+  href: string;
+  eyebrow?: string;
+  title: string;
+  description: string;
+  meta?: string;
+  accent?: string; // optional hex for left accent bar
+  icon?: string; // optional emoji/symbol
+}
+const { href, eyebrow, title, description, meta, accent, icon } = Astro.props;
+---
+<a class="index-card" href={href} style={accent ? `--accent: ${accent}` : ""}>
+  <div class="index-card-body">
+    {eyebrow && <p class="index-card-eyebrow">{eyebrow}</p>}
+    <h3 class="index-card-title">{title}</h3>
+    <p class="index-card-description">{description}</p>
+    {meta && <p class="index-card-meta">{meta}</p>}
+  </div>
+  <span class="index-card-arrow" aria-hidden="true">→</span>
+</a>
+
+<style>
+.index-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: #fff;
+  border: 1px solid var(--color-brown-outline);
+  border-left: 3px solid var(--accent, var(--color-blush-deep));
+  border-radius: 14px;
+  padding: 24px 28px;
+  color: var(--color-dark-brown);
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: var(--shadow-sm);
+  height: 100%;
+}
+.index-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  text-decoration: none;
+}
+.index-card:hover .index-card-arrow {
+  transform: translateX(4px);
+  color: var(--color-blush-deep);
+}
+.index-card-body { flex: 1; }
+.index-card-eyebrow {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-brown-secondary);
+  margin: 0 0 8px;
+  font-weight: 600;
+}
+.index-card-title {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  line-height: 1.25;
+  margin: 0 0 10px;
+  color: var(--color-dark-brown);
+}
+.index-card-description {
+  color: var(--color-brown-secondary);
+  font-size: 15px;
+  line-height: 1.55;
+  margin: 0;
+}
+.index-card-meta {
+  font-size: 13px;
+  color: var(--color-brown-secondary);
+  margin: 10px 0 0;
+  padding-top: 10px;
+  border-top: 1px solid rgba(58, 46, 42, 0.08);
+}
+.index-card-arrow {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  font-size: 22px;
+  color: var(--color-brown-secondary);
+  transition: transform 0.15s ease, color 0.15s ease;
+  line-height: 1;
+}
+</style>

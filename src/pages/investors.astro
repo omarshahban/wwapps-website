@@ -16,7 +16,13 @@ const soon = apps.filter(a => a.data.status === "coming-soon").length;
     <div class="container container-narrow">
       <p class="eyebrow">Investors</p>
       <h1>A portfolio of simple Shopify apps.</h1>
-      <p class="hero-lead">We build small, focused Shopify apps, ship fast, and stack them into a cashflow-positive portfolio. Low overhead, no servers, exit optionality.</p>
+      <p class="hero-lead">We build small, focused Shopify apps, ship fast, and stack them into a cashflow-positive portfolio. Low overhead, small backends, exit optionality.</p>
+      <div class="stat-strip" style="margin-top:32px">
+        <div class="stat-item"><strong>{live}</strong><span>Live apps</span></div>
+        <div class="stat-item"><strong>{soon}</strong><span>In pipeline</span></div>
+        <div class="stat-item"><strong>100</strong><span>App blueprint</span></div>
+        <div class="stat-item"><strong>3-5x</strong><span>ARR exit multiple</span></div>
+      </div>
     </div>
   </section>
 

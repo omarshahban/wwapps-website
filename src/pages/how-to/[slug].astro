@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import CTA from "../../components/CTA.astro";
+import IndexCard from "../../components/IndexCard.astro";
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
@@ -9,6 +10,15 @@ export async function getStaticPaths() {
 }
 const { post } = Astro.props;
 const { Content } = await post.render();
+
+const apps = await getCollection("apps");
+const relatedApp = post.data.relatedApp ? apps.find(a => a.slug === post.data.relatedApp) : null;
+
+const allHowtos = await getCollection("howto");
+const similar = allHowtos
+  .filter(h => h.slug !== post.slug && (h.data.category === post.data.category || h.data.relatedApp === post.data.relatedApp))
+  .slice(0, 4);
+
 const schema = {
   "@context": "https://schema.org",
   "@type": "HowTo",
@@ -26,18 +36,65 @@ const schema = {
 >
   <section class="hero">
     <div class="container container-narrow">
-      <p class="eyebrow">{post.data.category}</p>
+      <p class="eyebrow">{post.data.category} guide</p>
       <h1>{post.data.title}</h1>
       <p class="hero-lead">{post.data.description}</p>
-      <p style="margin-top:12px;font-size:14px;color:var(--color-text-muted)">Updated {post.data.updatedAt.toISOString().slice(0, 10)}</p>
+      <div class="howto-meta-row">
+        <span class="meta-pill"><strong>{post.data.readingTime || 5}</strong> min read</span>
+        <span class="meta-pill">Updated {post.data.updatedAt.toISOString().slice(0, 10)}</span>
+        <a href="/how-to/" class="meta-pill meta-pill-link">All guides →</a>
+      </div>
     </div>
   </section>
+
   <section class="section">
-    <div class="container container-narrow prose">
-      <Content />
+    <div class="container container-narrow">
+      <div class="howto-layout">
+        <div class="howto-content prose">
+          <Content />
+        </div>
+        {relatedApp && (
+          <aside class="howto-sidebar">
+            <div class="howto-related-card">
+              <p class="eyebrow">Related app</p>
+              {relatedApp.data.logo && <img src={relatedApp.data.logo} alt="" class="howto-related-logo" width="56" height="56" />}
+              <h3 class="howto-related-title">{relatedApp.data.name}</h3>
+              <p class="howto-related-tagline">{relatedApp.data.tagline}</p>
+              <div class="howto-related-actions">
+                <a href={`/apps/${relatedApp.slug}/`} class="btn btn-secondary" style="padding:10px 14px;font-size:13px;width:100%;text-align:center">Learn more</a>
+                {relatedApp.data.shopifyUrl && (
+                  <a href={relatedApp.data.shopifyUrl} target="_blank" rel="noopener" class="btn btn-primary" style="padding:10px 14px;font-size:13px;width:100%;text-align:center;margin-top:8px">Install on Shopify</a>
+                )}
+              </div>
+            </div>
+          </aside>
+        )}
+      </div>
     </div>
   </section>
-  <section class="section section-alt">
+
+  {similar.length > 0 && (
+    <section class="section section-alt">
+      <div class="container container-narrow">
+        <div class="section-head" style="margin-bottom:20px">
+          <p class="eyebrow">Keep reading</p>
+          <h2 style="margin:0">More guides you might need.</h2>
+        </div>
+        <div class="grid grid-2">
+          {similar.map(h => (
+            <IndexCard
+              href={`/how-to/${h.slug}/`}
+              eyebrow={`${h.data.readingTime || 5} min read`}
+              title={h.data.title}
+              description={h.data.description}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="section">
     <div class="container container-narrow">
       <CTA
         heading="Need help with this on your store?"
@@ -50,3 +107,62 @@ const schema = {
     </div>
   </section>
 </BaseLayout>
+
+<style>
+.howto-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+.meta-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid var(--color-brown-outline);
+  font-size: 13px;
+  color: var(--color-brown-secondary);
+}
+.meta-pill strong {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  color: var(--color-blush-deep);
+}
+.meta-pill-link { color: var(--color-blush-deep); text-decoration: none; font-weight: 600; }
+.howto-layout { display: grid; grid-template-columns: 1fr; gap: 32px; }
+@media (min-width: 960px) {
+  .howto-layout { grid-template-columns: minmax(0, 1fr) 280px; gap: 48px; align-items: start; }
+}
+.howto-content { min-width: 0; }
+.howto-sidebar { position: sticky; top: 96px; }
+.howto-related-card {
+  background: #fff;
+  border: 1px solid var(--color-brown-outline);
+  border-left: 3px solid var(--color-blush-deep);
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+}
+.howto-related-logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  object-fit: cover;
+  margin: 10px 0 14px;
+}
+.howto-related-title {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  margin: 0 0 8px;
+  color: var(--color-dark-brown);
+}
+.howto-related-tagline {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--color-brown-secondary);
+  margin: 0 0 18px;
+}
+</style>

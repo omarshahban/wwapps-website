@@ -3,6 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import AppCard from "../components/AppCard.astro";
 import Testimonial from "../components/Testimonial.astro";
 import CTA from "../components/CTA.astro";
+import IconSvg from "../components/IconSvg.astro";
 import { getCollection } from "astro:content";
 
 const apps = (await getCollection("apps")).sort((a, b) => {
@@ -68,32 +69,32 @@ const testimonials = [
       </div>
       <div class="grid grid-3">
         <div class="feature-tile">
-          <div class="feature-icon" aria-hidden="true">✓</div>
+          <div class="feature-icon" aria-hidden="true"><IconSvg name="check" size={22} /></div>
           <h3>Real free tier</h3>
           <p>Not a trial. A real plan you can run forever. Paid tiers kick in only when you outgrow the limits.</p>
         </div>
         <div class="feature-tile">
-          <div class="feature-icon" aria-hidden="true">⚡</div>
+          <div class="feature-icon" aria-hidden="true"><IconSvg name="bolt" size={22} /></div>
           <h3>5-minute setup</h3>
           <p>App embed install, no theme edits, no developer needed. You click install and it works.</p>
         </div>
         <div class="feature-tile">
-          <div class="feature-icon" aria-hidden="true">♡</div>
+          <div class="feature-icon" aria-hidden="true"><IconSvg name="heart" size={22} /></div>
           <h3>Support that replies</h3>
           <p>You email us, you get one of us back within 24 hours. No ticket queue, no outsourced first line.</p>
         </div>
         <div class="feature-tile">
-          <div class="feature-icon" aria-hidden="true">◇</div>
+          <div class="feature-icon" aria-hidden="true"><IconSvg name="lock-open" size={22} /></div>
           <h3>No lock-in</h3>
           <p>Your settings and data live on Shopify metafields. Uninstall clean, no leftover code.</p>
         </div>
         <div class="feature-tile">
-          <div class="feature-icon" aria-hidden="true">↻</div>
+          <div class="feature-icon" aria-hidden="true"><IconSvg name="rocket" size={22} /></div>
           <h3>Fast shipping</h3>
           <p>We ship new apps weekly and new features every few days. Merchant feedback gets built fast.</p>
         </div>
         <div class="feature-tile">
-          <div class="feature-icon" aria-hidden="true">$</div>
+          <div class="feature-icon" aria-hidden="true"><IconSvg name="dollar" size={22} /></div>
           <h3>Honest pricing</h3>
           <p>We never gate obvious features to force an upgrade. Pay for real extras, not basics.</p>
         </div>

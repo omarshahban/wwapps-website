@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import IndexCard from "../../components/IndexCard.astro";
 import { getCollection } from "astro:content";
 const entries = (await getCollection("comparisons")).sort(
   (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
@@ -22,11 +23,14 @@ const entries = (await getCollection("comparisons")).sort(
       {entries.length === 0 && <p>Comparisons coming soon.</p>}
       <div class="grid grid-2">
         {entries.map(e => (
-          <a class="card" href={`/compare/${e.slug}/`} style="text-decoration:none;color:inherit">
-            <p class="eyebrow">{e.data.ourApp} vs {e.data.competitor}</p>
-            <h3 style="margin:6px 0 10px">{e.data.title}</h3>
-            <p>{e.data.description}</p>
-          </a>
+          <IndexCard
+            href={`/compare/${e.slug}/`}
+            eyebrow={`${e.data.ourApp}  vs  ${e.data.competitor}`}
+            title={e.data.title}
+            description={e.data.description}
+            meta={`Updated ${e.data.updatedAt.toISOString().slice(0, 10)}`}
+            accent="#a53630"
+          />
         ))}
       </div>
     </div>

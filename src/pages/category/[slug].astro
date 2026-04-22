@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import AppCard from "../../components/AppCard.astro";
+import IndexCard from "../../components/IndexCard.astro";
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
@@ -15,7 +16,7 @@ export async function getStaticPaths() {
 const { category } = Astro.props;
 const apps = (await getCollection("apps")).filter(a => a.data.category === category);
 const listicles = (await getCollection("listicles")).filter(l => l.data.category === category);
-const howtos = (await getCollection("howto")).filter(h => h.data.category === category || h.data.category === "Merchandising" || h.data.category === "Loyalty");
+const howtos = (await getCollection("howto")).filter(h => h.data.category === category);
 
 const blurb: Record<string, string> = {
   "Conversion": "Apps that lift conversion rate on product and collection pages. Badges, delivery dates, origin labels, the things shoppers look for before they hit buy.",
@@ -23,6 +24,14 @@ const blurb: Record<string, string> = {
   "Merchandising": "Ways to present products well so the right items get seen by the right shoppers.",
   "Fulfillment": "Delivery, shipping, and post-purchase clarity for merchants who want fewer where-is-my-order emails."
 };
+
+const accent: Record<string, string> = {
+  Conversion: "#a53630",
+  Loyalty: "#2e6b43",
+  Merchandising: "#1d4e8a",
+  Fulfillment: "#8a5a17"
+};
+const catAccent = accent[category] || "#a53630";
 ---
 <BaseLayout
   title={`${category} Shopify apps and guides — Win-Win Apps`}
@@ -30,9 +39,14 @@ const blurb: Record<string, string> = {
 >
   <section class="hero">
     <div class="container container-narrow">
-      <p class="eyebrow">Category</p>
+      <p class="eyebrow" style={`color:${catAccent}`}>Category</p>
       <h1>{category} apps for Shopify.</h1>
       <p class="hero-lead">{blurb[category] || `Our Shopify ${category.toLowerCase()} apps, plus comparisons and how-tos for merchants.`}</p>
+      <div class="category-stats">
+        <span class="meta-pill"><strong>{apps.length}</strong> apps</span>
+        <span class="meta-pill"><strong>{listicles.length}</strong> roundups</span>
+        <span class="meta-pill"><strong>{howtos.length}</strong> how-to guides</span>
+      </div>
     </div>
   </section>
 
@@ -40,9 +54,10 @@ const blurb: Record<string, string> = {
     <section class="section">
       <div class="container">
         <div class="section-head">
-          <h2>Our {category.toLowerCase()} apps</h2>
+          <p class="eyebrow">Our apps</p>
+          <h2 style="margin:0">{category} apps built by Win-Win</h2>
         </div>
-        <div class="grid">
+        <div class={apps.length === 4 ? "grid-4" : "grid"}>
           {apps.map(app => <AppCard app={app} />)}
         </div>
       </div>
@@ -50,33 +65,72 @@ const blurb: Record<string, string> = {
   )}
 
   {listicles.length > 0 && (
-    <section class="section">
-      <div class="container container-narrow">
+    <section class="section section-alt">
+      <div class="container">
         <div class="section-head">
-          <h2>Best-of lists</h2>
+          <p class="eyebrow">Best-of roundups</p>
+          <h2 style="margin:0">Top {category.toLowerCase()} apps, ranked</h2>
         </div>
-        {listicles.map(l => (
-          <article class="card" style="margin-bottom:16px">
-            <h3 style="margin:0 0 6px"><a href={`/best/${l.slug}/`}>{l.data.title}</a></h3>
-            <p style="margin:0">{l.data.description}</p>
-          </article>
-        ))}
+        <div class="grid grid-2">
+          {listicles.map(l => (
+            <IndexCard
+              href={`/best/${l.slug}/`}
+              eyebrow={category}
+              title={l.data.title}
+              description={l.data.description}
+              meta={`${l.data.entries.length} apps reviewed`}
+              accent={catAccent}
+            />
+          ))}
+        </div>
       </div>
     </section>
   )}
 
   {howtos.length > 0 && (
     <section class="section">
-      <div class="container container-narrow">
+      <div class="container">
         <div class="section-head">
-          <h2>How-to guides</h2>
+          <p class="eyebrow">How-to guides</p>
+          <h2 style="margin:0">Step-by-step {category.toLowerCase()} guides</h2>
         </div>
-        <ul>
+        <div class="grid grid-2">
           {howtos.map(h => (
-            <li style="margin:8px 0"><a href={`/how-to/${h.slug}/`}>{h.data.title}</a></li>
+            <IndexCard
+              href={`/how-to/${h.slug}/`}
+              eyebrow={`${h.data.readingTime || 5} min read`}
+              title={h.data.title}
+              description={h.data.description}
+              accent={catAccent}
+            />
           ))}
-        </ul>
+        </div>
       </div>
     </section>
   )}
 </BaseLayout>
+
+<style>
+.category-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+.meta-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid var(--color-brown-outline);
+  font-size: 13px;
+  color: var(--color-brown-secondary);
+}
+.meta-pill strong {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  color: var(--color-blush-deep);
+}
+</style>
