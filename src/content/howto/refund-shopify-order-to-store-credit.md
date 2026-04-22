@@ -12,25 +12,21 @@ readingTime: 3
 
 Refunding to original payment is cash out of your bank. Refunding to credit keeps the money in your store ecosystem and encourages repurchase. Retention lift is typically 30-50 percent on credit refunds versus cash refunds.
 
-## Step 1. Find the order
+## Step 1. Process the Shopify refund
 
-In Shopify admin, open the order you want to refund.
+In Shopify admin, open the order. If you are returning the goods to inventory, process the Shopify refund as a store credit rather than original payment method. On plans without native credit, skip to step 2.
 
-## Step 2. Use the refund-to-credit button
+## Step 2. Issue the credit with our app
 
-Bulk Store Credit adds a "Refund to store credit" button next to Shopify's native refund.
+In Bulk Store Credit, add a single row to the CSV with the customer's email and the refund amount. For one-off refunds you can also issue directly from the customer detail page.
 
-## Step 3. Pick amount
+## Step 3. Confirm
 
-Enter the refund amount. Can be partial (one item) or full (whole order).
+The customer's balance is updated and an email is sent with the new balance so they know credit is available for their next order.
 
-## Step 4. Confirm
+## Step 4. Mark the order
 
-Click Confirm. The customer's balance is updated and an email is sent with the new balance.
-
-## Step 5. Mark the order
-
-Optional: add an internal note on the order tagging it as "refunded to credit" for accounting clarity.
+Add an internal note on the order tagging it "refunded to credit" for accounting clarity.
 
 ## Bookkeeping
 

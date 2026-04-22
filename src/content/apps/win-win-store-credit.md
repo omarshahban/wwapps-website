@@ -49,7 +49,7 @@ faqs:
   - q: "How do bulk credits work?"
     a: "Upload a CSV of customer emails and amounts. The app issues credit to each customer and sends them a notification email. Good for loyalty pushes or one-time retention campaigns."
   - q: "Can I refund orders to store credit?"
-    a: "Yes. From any order page you can refund to store credit with one click. The customer gets an email with their new balance."
+    a: "Yes. Issue the refund amount as credit to the customer from the app dashboard or via a CSV row. The customer gets an email with their new balance and the credit applies automatically at their next checkout."
 testimonials:
   - quote: "Bulk store credit tool works immaculately. Saved us hours every week."
     author: "Shopify merchant"

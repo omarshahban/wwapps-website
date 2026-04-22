@@ -35,7 +35,7 @@ They do not need to copy any code.
 
 ## Step 5. Refund an order to store credit
 
-On any order page, the app adds a "Refund to store credit" button next to Shopify's native refund button. Click it, pick the amount, confirm. The amount is added to the customer's balance and the customer gets an email.
+When processing a refund in Shopify admin, open Bulk Store Credit alongside it and issue the refund amount as credit to that customer. The amount is added to the customer's balance and the customer gets an email.
 
 ## Bulk tools
 

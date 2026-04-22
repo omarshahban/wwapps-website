@@ -64,4 +64,4 @@ Three things. First, true CSV import with per-row notes. Second, retriable impor
 
 ## Our pick
 
-Bulk Store Credit by Win-Win Apps covers the CSV use case on every plan for free up to 50 active balances and nine dollars a month above that. Rise.ai works if you also need gift card sale and referrals in one bundle.
+Bulk Store Credit by Win-Win Apps covers the CSV use case on every Shopify plan. The free tier gives you the display widget plus CSV uploads of up to 10 rows. Pro is $49 a month for unlimited CSV rows and post-purchase campaigns. Rise.ai works if you also need a full gift card storefront and loyalty bundle.
