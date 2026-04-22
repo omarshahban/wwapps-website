@@ -7,17 +7,18 @@ updatedAt: "2026-04-22"
 entries:
   - rank: 1
     name: "Product Badges by Win-Win Apps"
-    tagline: "Unlimited Sale badges free, with targeting by collection, tag, and compare-at price."
+    tagline: "Free plan for 2 active Sale badges, Pro goes unlimited for $6.99/mo."
     isOurs: true
-    pricing: "Free, Pro $4.99/mo"
-    rating: 5
-    bestFor: "Stores that want unlimited Sale badges without a paywall."
+    pricing: "Free (2 badges), Pro $6.99/mo"
+    rating: null
+    bestFor: "Stores that want a real free plan with any OS 2.0 theme."
     pros:
-      - "Unlimited free Sale badges"
+      - "Free plan covers 2 active badges"
       - "Auto-targets compare-at price"
       - "No theme edits, clean install"
     cons:
       - "Newer app, smaller review count"
+      - "Unlimited badges requires Pro"
     url: "https://apps.shopify.com/badges-claude-automated"
   - rank: 2
     name: "Badgify"
@@ -62,7 +63,7 @@ entries:
     url: "https://apps.shopify.com/sales-pop-master"
 faqs:
   - q: "What is the best free Sale badge app for Shopify?"
-    a: "Product Badges by Win-Win Apps is the only major Sale badge app with a truly unlimited free tier. Badgify limits its free trial and Sales Pop Master adds a watermark on its free plan."
+    a: "Product Badges by Win-Win Apps has the strongest real free plan at 2 active badges forever, no watermark, works on every theme. Badgify limits its free trial and Sales Pop Master adds a watermark on its free plan."
   - q: "Do Shopify stores need a Sale badge app?"
     a: "Yes if you run frequent promotions. Shopify themes do not natively show a clear Sale label, so a badge app is the fastest way to highlight discounted products without editing theme code."
   - q: "Will a Sale badge app slow my store?"

@@ -16,17 +16,17 @@ Unexpired credit sits on your books forever as a liability and customers forget 
 
 Industry standard: 6 months for post-purchase rewards, 12 months for bulk-issued campaigns, 90 days for limited-time promotional credit.
 
-## Step 2. Set default expiry
+## Step 2. Track expiry in your CSV
 
-In Bulk Store Credit (Growth plan), go to Settings, set the default expiry window. All newly issued credit will follow this window.
+Bulk Store Credit ships expiry tracking as a per-row field in the CSV bulk issuer on the Pro plan. Add an expiry date column, upload, and the app stamps each balance with its expiry.
 
 ## Step 3. Override per issue
 
-For specific campaigns, override the default. Example: 90 days for a flash promo, 12 months for a loyalty thank-you.
+Different campaigns benefit from different windows. A flash promo might be 90 days, a loyalty thank-you 12 months. Set the date per row on the CSV, no admin toggle needed.
 
-## Step 4. Send expiry reminders
+## Step 4. Customer-facing reminders
 
-The app sends an email at 30 days and 7 days before expiry by default. Customize the copy for your brand voice.
+The email notification at issue time includes the expiry date. For stores that want additional reminder cadences, contact us on the Pro plan and we will wire it into your flow.
 
 ## Step 5. Legal check
 

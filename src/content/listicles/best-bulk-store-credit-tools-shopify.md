@@ -9,12 +9,12 @@ entries:
     name: "Bulk Store Credit by Win-Win Apps"
     tagline: "CSV-based bulk credit issuing with per-row notes and expiry."
     isOurs: true
-    pricing: "Free up to 50 balances, Growth $9/mo"
+    pricing: "Free 10-row CSV, Pro $49/mo unlimited"
     rating: 5
     bestFor: "Stores that need to reward a segment of customers at once."
     pros:
       - "True CSV bulk import"
-      - "Per-row notes and expiry"
+      - "Per-row notes"
       - "Works on every Shopify plan"
     cons:
       - "No gift card storefront, intentionally"

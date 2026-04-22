@@ -20,7 +20,7 @@ matrix:
     ours: "Yes"
     theirs: "Product page only"
   - feature: "Paid plan start"
-    ours: "$4.99/mo"
+    ours: "$6.99/mo"
     theirs: "$5.99/mo"
 faqs:
   - q: "Do I need 200 flags?"

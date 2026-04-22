@@ -9,14 +9,14 @@ const soon = apps.filter(a => a.data.status === "coming-soon").length;
 ---
 <BaseLayout
   title="Investors — Win-Win Apps"
-  description="Portfolio thesis, velocity, and exit strategy for Win-Win Apps, an indie Shopify app studio."
+  description="Portfolio thesis, velocity, team and exit path for Win-Win Apps, an indie Shopify app studio."
   current="investors"
 >
   <section class="hero">
     <div class="container container-narrow">
       <p class="eyebrow">Investors</p>
       <h1>A portfolio of simple Shopify apps.</h1>
-      <p class="hero-lead">We build small, focused Shopify apps, ship fast, and stack them into a cashflow-positive portfolio. Low overhead, small backends, exit optionality.</p>
+      <p class="hero-lead">We build small, focused Shopify apps, ship fast, and stack them into a cashflow-positive portfolio. Low overhead, lean backends, exit optionality.</p>
       <div class="stat-strip" style="margin-top:32px">
         <div class="stat-item"><strong>{live}</strong><span>Live apps</span></div>
         <div class="stat-item"><strong>{soon}</strong><span>In pipeline</span></div>
@@ -32,7 +32,8 @@ const soon = apps.filter(a => a.data.status === "coming-soon").length;
       <p>The Shopify App Store has 8,000+ apps but the long tail of mid-volume categories is poorly served. Most top apps are overpriced, overbuilt, and slow to ship. We target niches where 2 to 5 apps split the market and the leaders have obvious 1-2 star complaints. We enter with a free tier that covers what they gate behind 9 to 29 dollars a month.</p>
 
       <h2>Why this works</h2>
-      <p>We deliberately pick niches whose core feature can run on a lean stack. Where it makes sense, Shopify metafields and theme app extensions handle most of the logic on Shopify's infrastructure. When a real backend is needed, it is small and stateless. One deployment, a modest database, no scale-out email infrastructure. That is the difference between running costs of 10 dollars and 1,000 dollars a month per app, and it compounds across a portfolio.</p>
+      <p>Every Win-Win app has a real backend, but we push as much of the app into Shopify's own infrastructure as we can. Theme app extensions render on the storefront inside the theme itself. Shopify metafields hold merchant config. Our server handles OAuth, admin UI, bulk operations, and the bits Shopify cannot handle natively.</p>
+      <p>That split lets us run each app on a small Fly.io deployment with a modest Postgres database. No scale-out email infrastructure, no queue fleet, no CDN bills. The difference between an app costing $10 a month to operate and one costing $1,000 a month compounds across a portfolio of fifty apps.</p>
 
       <h2>Velocity</h2>
       <p>Our target is 10 new apps per month, each going from research to shipped in 3 days. We currently have {live} live, {soon} in the pipeline, and a 100-app blueprint mapped across conversion, merchandising, loyalty, fulfillment, and operations categories.</p>
@@ -40,18 +41,98 @@ const soon = apps.filter(a => a.data.status === "coming-soon").length;
       <h2>Exit path</h2>
       <p>Shopify apps trade on the secondary market at 3 to 5x ARR for healthy portfolios. Single apps with 1k+ installs and a clean review profile sell as drop-in acquisitions to larger app studios or private buyers. Our portfolio design means any subset can be sold independently, and the roll-up buyer community is active.</p>
 
-      <h2>The team</h2>
-      <p>Omar runs the studio and product direction. Shane handles production infrastructure and deployments. We keep the team small on purpose, code is written end-to-end by AI under tight human review, which is what lets us hit the 3-day build cadence.</p>
-
       <h2>Current portfolio</h2>
       <p>Product Badges and Bulk Store Credit are live on the Shopify App Store. Next shipments are in delivery date estimation and country-of-origin badges. Full app list and status is on <a href="/apps/">our apps page</a>.</p>
+    </div>
+  </section>
 
+  <section class="section section-alt">
+    <div class="container container-narrow">
+      <div class="section-head">
+        <p class="eyebrow">Team</p>
+        <h2>A merchant and a builder.</h2>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-head">
+          <div>
+            <h3>Omar Shahban</h3>
+            <p class="team-role">Co-Founder, CEO</p>
+          </div>
+          <a href="https://www.linkedin.com/in/omar-shahban/" target="_blank" rel="noopener" class="btn btn-secondary btn-small">LinkedIn</a>
+        </div>
+        <p>Omar has been a Shopify merchant for more than a decade. He co-founded <a href="https://gravid.ca" target="_blank" rel="noopener">Gravid.ca</a> in 2017, a weighted blanket brand that has sold to over 60,000 Canadians and been featured on CBC, CTV, National Post and Financial Post. Across his merchant portfolio he has driven over $20M in cross-border Shopify revenue across Canada, the US, the UK and Australia.</p>
+        <p>Every app at Win-Win is designed from that merchant seat first. The features we ship, the pricing we set, the onboarding we build — all of it is shaped by the frustrations Omar has lived with himself for ten years.</p>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-head">
+          <div>
+            <h3>Shane Stratton</h3>
+            <p class="team-role">Co-Founder, Technical</p>
+          </div>
+          <a href="https://www.linkedin.com/in/shanestratton/" target="_blank" rel="noopener" class="btn btn-secondary btn-small">LinkedIn</a>
+        </div>
+        <p>Shane is a senior software engineer with experience at Amazon (Software Development Engineer II, Customer Engagement Technologies), IBM (WebSphere Commerce and SPSS Modeller teams) and Chess.com (fullstack dev on the Variants project). He owns Win-Win's production infrastructure, database design and deployment pipeline.</p>
+        <p>Shane is the reason we can run lean. He keeps every app on small, stateless Fly.io deploys and makes sure the backend stays invisible to merchants and cheap to operate.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container container-narrow">
       <CTA
         heading="Want to talk?"
-        body="If you invest in indie software studios, portfolio SaaS, or Shopify ecosystem plays, we're happy to chat."
-        primaryLabel="Get in touch"
-        primaryHref="/contact/"
+        body="If you invest in indie software studios, portfolio SaaS, or Shopify ecosystem plays, reach out directly."
+        primaryLabel="omar@wwapps.io"
+        primaryHref="mailto:omar@wwapps.io"
       />
     </div>
   </section>
 </BaseLayout>
+
+<style>
+.team-card {
+  background: #fff;
+  border: 1px solid var(--color-brown-outline);
+  border-radius: 14px;
+  padding: 28px 30px;
+  margin-bottom: 22px;
+}
+.team-card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+.team-card-head h3 {
+  margin: 0 0 4px;
+  font-family: var(--font-serif);
+  font-size: 24px;
+  color: var(--color-blush-deep);
+}
+.team-role {
+  margin: 0;
+  color: var(--color-brown-secondary);
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.team-card p {
+  margin: 0 0 12px;
+  color: var(--color-brown-primary);
+  line-height: 1.6;
+}
+.team-card p:last-child {
+  margin-bottom: 0;
+}
+.team-card a {
+  color: var(--color-blush-deep);
+}
+.btn-small {
+  padding: 8px 16px;
+  font-size: 14px;
+}
+</style>

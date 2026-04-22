@@ -16,22 +16,22 @@ Manually rewarding customers does not scale. Rules-based rewards run in the back
 
 Common triggers: second order placed, lifetime spend crosses $500, birthday, one-year customer anniversary.
 
-## Step 2. Set the rule
+## Step 2. Build your segment list
 
-In Bulk Store Credit (Growth plan), go to Automation, add a rule: when [trigger], issue [amount] credit to [customer].
+Bulk Store Credit Pro plan includes post-purchase credit campaigns. For customer segment rewards, export a Shopify customer segment that matches your rule (for example "2nd order placed" or "lifetime spend > $500") into CSV.
 
 ## Step 3. Set the credit amount
 
-Typical values: $10 for second order, $25 for $500 lifetime spend, $15 birthday gift. Keep amounts small enough to protect margin.
+Typical values: $10 for second order, $25 for $500 lifetime spend, $15 birthday gift. Keep amounts small enough to protect margin. Add the amount column to the CSV.
 
-## Step 4. Set a cap
+## Step 4. Upload and issue
 
-Max credit per customer per year. Prevents abuse and caps your liability.
+In Bulk Store Credit, upload the CSV. The app issues credit to each matching customer and sends the notification email in one pass. Pro plan supports unlimited rows per CSV.
 
-## Step 5. Set the email template
+## Step 5. Customize the email
 
-Customize the notification email so the reward feels personal, not automated.
+Edit the notification template once in Settings. Every issued credit uses that template, so reward emails feel personal even at scale.
 
 ## Step 6. Monitor
 
-Check the audit log weekly to ensure rules are triggering correctly and not double-issuing credit.
+Export your audit log weekly to spot-check rules are firing cleanly. Failed rows are flagged in the upload result so you never double-issue to a customer.

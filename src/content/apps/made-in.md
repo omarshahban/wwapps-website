@@ -17,7 +17,7 @@ pricing:
   free: "Up to 50 products covered. All core features."
   paid:
     - name: "Pro"
-      price: "$4.99/mo"
+      price: "$6.99/mo"
       includes:
         - "Unlimited products"
         - "Custom country labels"

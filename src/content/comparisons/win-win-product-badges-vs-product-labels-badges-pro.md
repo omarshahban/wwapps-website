@@ -5,10 +5,10 @@ ourApp: "Product Badges"
 competitor: "Product Labels & Badges Pro"
 publishedAt: "2026-04-22"
 updatedAt: "2026-04-22"
-verdictSummary: "Product Badges by Win-Win Apps wins if you want unlimited badges free with a clean storefront render. Product Labels & Badges Pro wins if you need custom image badges uploaded as PNGs."
+verdictSummary: "Product Badges by Win-Win Apps wins if you want a real free plan and a clean storefront render. Product Labels & Badges Pro wins if you need custom image badges uploaded as PNGs."
 matrix:
   - feature: "Free plan"
-    ours: "Unlimited badges, unlimited products"
+    ours: "2 active badges, all themes"
     theirs: "Limited free tier"
   - feature: "Storefront impact"
     ours: "Theme app extension, renders with theme"
@@ -20,7 +20,7 @@ matrix:
     ours: "Built-in icons"
     theirs: "Larger icon library"
   - feature: "Price, paid plan start"
-    ours: "$4.99/mo"
+    ours: "$6.99/mo"
     theirs: "$6.99/mo"
   - feature: "Targeting rules"
     ours: "Tag, collection, price, inventory"
@@ -34,4 +34,4 @@ faqs:
 
 ## The short answer
 
-Product Badges by Win-Win Apps is better for 90 percent of use cases because the free tier is uncapped and the storefront stays fast. Product Labels & Badges Pro is better if your specific need is custom image upload.
+Product Badges by Win-Win Apps is better for most merchants because the free plan is real (2 active badges, any theme) and the storefront stays fast. Product Labels & Badges Pro is better if your specific need is custom image upload.

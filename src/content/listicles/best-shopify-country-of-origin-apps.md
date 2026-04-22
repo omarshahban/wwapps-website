@@ -9,7 +9,7 @@ entries:
     name: "Made In by Win-Win Apps"
     tagline: "Product page and collection page origin badges."
     isOurs: true
-    pricing: "Free, Pro $4.99/mo"
+    pricing: "Free, Pro $6.99/mo"
     rating: null
     bestFor: "Brands where origin is a selling point."
     pros:

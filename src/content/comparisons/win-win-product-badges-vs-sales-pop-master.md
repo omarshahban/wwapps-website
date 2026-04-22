@@ -11,7 +11,7 @@ matrix:
     ours: "Yes"
     theirs: "Badges plus popups"
   - feature: "Free plan"
-    ours: "Unlimited, no watermark"
+    ours: "2 active badges, no watermark"
     theirs: "Free with watermark"
   - feature: "Social proof popups"
     ours: "No, intentionally"
@@ -20,7 +20,7 @@ matrix:
     ours: "Light, theme extension"
     theirs: "Heavier, multiple widgets"
   - feature: "Price paid"
-    ours: "$4.99/mo"
+    ours: "$6.99/mo"
     theirs: "$19.99/mo"
 faqs:
   - q: "Do social proof popups actually convert?"

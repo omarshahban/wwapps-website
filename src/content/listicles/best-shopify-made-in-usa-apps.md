@@ -9,7 +9,7 @@ entries:
     name: "Made In by Win-Win Apps"
     tagline: "Made In USA badge with custom label options."
     isOurs: true
-    pricing: "Free up to 50 products, Pro $4.99/mo"
+    pricing: "Free up to 50 products, Pro $6.99/mo"
     rating: null
     bestFor: "US brands that emphasize domestic manufacturing."
     pros:

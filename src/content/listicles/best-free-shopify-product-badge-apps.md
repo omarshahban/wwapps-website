@@ -8,18 +8,18 @@ updatedAt: 2026-04-22
 entries:
   - rank: 1
     name: "Win-Win Product Badges"
-    tagline: "Unlimited badges on the free plan, works with any Online Store 2.0 theme."
+    tagline: "Real free plan for 2 active badges, works with any Online Store 2.0 theme."
     isOurs: true
-    pricing: "Free, Pro $4.99/mo"
-    rating: 5.0
-    bestFor: "Any store that wants Sale, New and Bestseller badges without paywalls."
+    pricing: "Free (2 badges), Pro $6.99/mo unlimited"
+    rating: null
+    bestFor: "Any store that wants Sale, New and Bestseller badges with a real free tier."
     pros:
-      - "Actually unlimited free badges"
+      - "Real free plan, no watermark"
       - "Theme app embed, no code, no slowdown"
       - "Rule-based targeting on tag, collection, price"
     cons:
       - "New entrant, smaller review count than incumbents"
-      - "No animated badges on free tier"
+      - "Unlimited badges require Pro"
     url: "https://apps.shopify.com/win-win-product-badges"
   - rank: 2
     name: "Badgify"
@@ -65,7 +65,7 @@ entries:
     url: "https://apps.shopify.com/sales-pop-master"
 faqs:
   - q: "What is the best free Shopify badge app?"
-    a: "Win-Win Product Badges offers unlimited badges, unlimited products, rule-based targeting and no code on its free tier, which is the widest free offering in the category right now."
+    a: "Win-Win Product Badges offers a real free plan with 2 active badges, rule-based targeting, no watermark and no code. It is the strongest genuine free offering in the category right now."
   - q: "Do badge apps slow down Shopify stores?"
     a: "Older badge apps that inject a separate script tag can add tens of milliseconds. Apps built on Shopify's theme app extension system, like Win-Win Product Badges, render with the theme and do not add a separate script."
   - q: "Can I add badges without editing theme code?"

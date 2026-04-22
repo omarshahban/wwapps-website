@@ -20,7 +20,7 @@ matrix:
     ours: "Yes"
     theirs: "Yes"
   - feature: "Paid plan start"
-    ours: "$4.99/mo"
+    ours: "$6.99/mo"
     theirs: "$7.99/mo"
 faqs:
   - q: "Can I change the label text?"

@@ -13,9 +13,8 @@ const apps = (await getCollection("apps")).sort((a, b) => {
 const liveApps = apps.filter(a => a.data.status === "live");
 
 const testimonials = [
-  { quote: "amazing support, great features, and is incredibly easy to use", author: "Store Credit merchant", rating: 5 },
-  { quote: "Bulk store credit tool works immaculately. Saved us hours every week.", author: "Store Credit merchant", rating: 5 },
-  { quote: "Finally a badge app that does not hide basic stuff behind a paywall. Installed in five minutes.", author: "Product Badges merchant", rating: 5 }
+  { quote: "Bulk store credit tool works immaculately. Saved us hours every week.", author: "Bulk Store Credit merchant", rating: 5 },
+  { quote: "amazing support, great features, and is incredibly easy to use", author: "Bulk Store Credit merchant", rating: 5 }
 ];
 ---
 <BaseLayout
@@ -40,9 +39,9 @@ const testimonials = [
         ))}
       </div>
       <div class="stat-strip">
-        <div class="stat-item"><strong>{liveApps.length}</strong><span>Published apps</span></div>
-        <div class="stat-item"><strong>5.0★</strong><span>Average rating</span></div>
-        <div class="stat-item"><strong>Free</strong><span>Real free tier</span></div>
+        <div class="stat-item"><strong>{liveApps.length}</strong><span>Live apps</span></div>
+        <div class="stat-item"><strong>5.0★</strong><span>Rating on reviewed apps</span></div>
+        <div class="stat-item"><strong>Free</strong><span>Tier on every app</span></div>
         <div class="stat-item"><strong>24h</strong><span>Support response</span></div>
       </div>
     </div>
@@ -108,7 +107,7 @@ const testimonials = [
         <p class="eyebrow">Merchants say</p>
         <h2>Real reviews from real stores.</h2>
       </div>
-      <div class="grid grid-3">
+      <div class="grid grid-2">
         {testimonials.map(t => <Testimonial quote={t.quote} author={t.author} rating={t.rating} />)}
       </div>
     </div>

@@ -6,26 +6,25 @@ category: "Conversion"
 status: "live"
 shopifyUrl: "https://apps.shopify.com/badges-claude-automated"
 logo: "/icons/ww-badges.png"
-rating: 5.0
-reviewCount: 1
+rating: null
+reviewCount: 0
 features:
   - "Sale, New, Bestseller, Hot, and custom badges"
   - "Multiple shapes: rectangle, pill, circle, ribbon"
   - "Target by product, tag, or collection"
   - "Customize color, font, position, size, rotation"
-  - "Optional animation for attention-grabbing styles"
   - "Works on virtually any Shopify theme"
   - "No theme edits, no liquid, no developer needed"
-  - "Real free plan"
+  - "Free plan included"
 pricing:
-  free: "Unlimited badges, unlimited products. All core features."
+  free: "Up to 2 active badges. Works on all Shopify themes."
   paid:
     - name: "Pro"
-      price: "$4.99/mo"
+      price: "$6.99/mo"
       includes:
-        - "Animated badge styles"
-        - "Scheduling windows"
-        - "Priority support"
+        - "Unlimited active badges"
+        - "Works on all Shopify themes"
+        - "7-day free trial"
 competitors:
   - name: "Badgify"
     pricing: "$9.99 to $19.99/mo"
@@ -37,16 +36,13 @@ keywords:
   - "shopify new badge"
   - "shopify badge app no code"
 faqs:
-  - q: "Is it really free?"
-    a: "Yes. Unlimited badges and unlimited products with all core features. Paid plan only adds animations, scheduling, and priority support."
+  - q: "Is there a free plan?"
+    a: "Yes. The free plan supports up to 2 active badges and works on all Shopify themes. If you need more active badges at the same time, the Pro plan at $6.99 a month lifts that to unlimited."
   - q: "Will it slow my store down?"
     a: "No. Badges render through Shopify's theme app extension system, so they load with the rest of the storefront and do not ship a separate script."
   - q: "Do I need to edit theme code?"
     a: "No. One click in the theme editor turns on the app embed and badges start rendering."
-testimonials:
-  - quote: "Finally a badge app that does not hide basic stuff behind a paywall. Installed in five minutes."
-    author: "Shopify merchant"
-    rating: 5
+testimonials: []
 publishedAt: 2026-03-20
 updatedAt: 2026-04-22
 ---

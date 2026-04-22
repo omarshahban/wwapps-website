@@ -6,16 +6,16 @@ ourApp: "Win-Win Store Credit"
 competitor: "Rise.ai"
 publishedAt: 2026-04-22
 updatedAt: 2026-04-22
-verdictSummary: "Win-Win Store Credit is the better pick if you want simple store credit on a non-Plus plan without paying $20 per month. Rise.ai is the better pick if you also need a full gift card platform and have the budget for it."
+verdictSummary: "Win-Win Store Credit is the better pick if you want simple bulk store credit on a non-Plus plan without paying for a full loyalty suite. Rise.ai is the better pick if you also need a full gift card platform and have the budget for it."
 matrix:
   - feature: "Works on non-Plus"
     ours: "Yes, on every plan including Starter"
     theirs: "Yes"
   - feature: "Free plan"
-    ours: "Free for up to 50 active balances"
+    ours: "Widget + 10-row CSV"
     theirs: "No free tier"
   - feature: "Starting paid price"
-    ours: "$9/mo"
+    ours: "$49/mo"
     theirs: "$19.99/mo"
   - feature: "Store credit"
     ours: "Yes, core feature"
@@ -23,25 +23,22 @@ matrix:
   - feature: "Gift card sale"
     ours: "Not included, we focus on credit"
     theirs: "Yes, full gift card store"
-  - feature: "Expiring credit"
-    ours: "Growth plan"
-    theirs: "Yes"
   - feature: "Bulk CSV import"
-    ours: "Growth plan"
+    ours: "Unlimited on Pro"
     theirs: "Yes"
-  - feature: "API access"
-    ours: "Scale plan"
+  - feature: "Post-purchase campaigns"
+    ours: "Pro plan"
     theirs: "Higher plan"
-  - feature: "Price at 5,000 balances"
-    ours: "$9/mo"
-    theirs: "Higher tier pricing"
+  - feature: "Custom dev tier"
+    ours: "$1,000/mo, 2-week custom builds"
+    theirs: "Not offered"
 faqs:
   - q: "Which app is cheaper?"
-    a: "Win-Win Store Credit starts free and its first paid tier is $9 per month. Rise.ai starts at $19.99 per month and ramps up to several hundred dollars per month on higher tiers."
+    a: "Win-Win Store Credit has a free tier with the display widget and up to 10 bulk CSV rows. Pro is $49 per month for unlimited CSV bulk credits. Rise.ai starts at $19.99 per month but has no free tier and ramps up quickly as your store grows."
   - q: "Does Rise.ai do more than Win-Win Store Credit?"
-    a: "Yes. Rise.ai bundles a full gift card storefront, rewards, and a deeper loyalty toolkit. Win-Win Store Credit focuses on the specific job of issuing and redeeming store credit."
+    a: "Yes. Rise.ai bundles a full gift card storefront, rewards, and a deeper loyalty toolkit. Win-Win Store Credit focuses on the specific job of issuing and redeeming store credit in bulk."
   - q: "Can I migrate balances from Rise.ai?"
-    a: "Yes. Rise.ai lets you export customer balances as CSV and Win-Win Store Credit supports CSV import on the Growth plan. Balances preserve one-to-one."
+    a: "Yes. Rise.ai lets you export customer balances as CSV and Win-Win Store Credit supports unlimited CSV import on the Pro plan. Balances preserve one-to-one."
 ---
 
 ## The tradeoff
@@ -52,9 +49,9 @@ Win-Win Store Credit is the opposite approach. We built the smallest, cleanest v
 
 ## Where Win-Win wins
 
-If your actual need is "I want to give customers store credit after a refund or as a retention nudge", Win-Win Store Credit covers that for free up to fifty balances and for nine dollars a month above that.
+If your actual need is "I want to give customers store credit after a refund or as a retention nudge", Win-Win Store Credit covers the basics for free, and unlimited CSV bulk issuance on the $49 Pro plan.
 
-Rise's minimum price is double ours and includes features you may not need.
+Rise bundles a full gift card suite. If you do not need the gift card store, loyalty engine, or referrals, you are paying for features you will not use.
 
 ## Where Rise wins
 

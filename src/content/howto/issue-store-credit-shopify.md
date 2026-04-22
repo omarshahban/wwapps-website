@@ -39,7 +39,7 @@ On any order page, the app adds a "Refund to store credit" button next to Shopif
 
 ## Bulk tools
 
-If you are on the Growth plan, you can upload a CSV of customer emails and amounts to issue credit to many customers at once. This is useful for loyalty pushes, apology gestures, or one-time retention campaigns.
+The free plan supports CSV uploads up to 10 rows. Upgrade to Pro for unlimited CSV rows. Upload a CSV of customer emails and amounts to issue credit to many customers at once. Useful for loyalty pushes, apology gestures, or one-time retention campaigns.
 
 ## Audit log
 

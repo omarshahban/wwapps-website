@@ -9,13 +9,13 @@ entries:
     name: "Bulk Store Credit by Win-Win Apps"
     tagline: "The cleanest way to reward returning customers with credit."
     isOurs: true
-    pricing: "Free, Growth $9/mo"
+    pricing: "Free, Pro $49/mo"
     rating: 5
     bestFor: "Stores that want to issue credit without a full loyalty stack."
     pros:
-      - "Simple to set up"
-      - "Works on every plan"
-      - "Auto-reward rules on orders"
+      - "Bulk CSV credit issuance"
+      - "Works on every Shopify plan"
+      - "Post-purchase campaigns"
     cons:
       - "Not a full points system"
     url: "https://apps.shopify.com/win-win-store-credit"

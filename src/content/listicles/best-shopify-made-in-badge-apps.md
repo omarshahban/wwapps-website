@@ -9,7 +9,7 @@ entries:
     name: "Made In by Win-Win Apps"
     tagline: "200+ country flags, tag-based assignment, free up to 50 products."
     isOurs: true
-    pricing: "Free up to 50 products, Pro $4.99/mo"
+    pricing: "Free up to 50 products, Pro $6.99/mo"
     rating: null
     bestFor: "Premium brands that care about origin transparency."
     pros:

@@ -10,11 +10,11 @@ entries:
     name: "Win-Win Store Credit"
     tagline: "Simple store credit for any Shopify plan with a real free tier."
     isOurs: true
-    pricing: "Free, Growth $9/mo, Scale $29/mo"
+    pricing: "Free (widget + 10-row CSV), Pro $49/mo"
     rating: 5.0
     bestFor: "Stores below Plus that want clean store credit without the loyalty-stack tax."
     pros:
-      - "Free tier covers 50 active balances"
+      - "Bulk CSV credit issuance"
       - "Works on Starter, Basic, Grow, Advanced, Plus"
       - "Auto-applies credit at checkout"
     cons:
