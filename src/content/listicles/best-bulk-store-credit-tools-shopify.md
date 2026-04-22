@@ -33,23 +33,11 @@ entries:
       - "Expensive"
       - "Overkill for pure credit"
     url: "https://apps.shopify.com/gift-card-loyalty-program"
-  - rank: 3
-    name: "Shopify native store credit"
-    tagline: "Built-in on Plus, no bulk CSV tools."
-    isOurs: false
-    pricing: "Plus only"
-    rating: null
-    bestFor: "Plus merchants that do not need bulk."
-    pros:
-      - "Native checkout"
-    cons:
-      - "Plus only"
-      - "No bulk CSV"
 faqs:
   - q: "Can I issue store credit to 500 customers at once on Shopify?"
     a: "Yes. Bulk Store Credit by Win-Win Apps supports CSV uploads of up to thousands of customers. Each row includes email, amount, and an optional note. The app issues credit and sends notification emails."
   - q: "Can I bulk issue store credit on Shopify Basic?"
-    a: "Yes. Our app works on every Shopify plan including Starter and Basic. Shopify native store credit is Plus-only and does not include bulk CSV tooling."
+    a: "Yes. Our app works on every Shopify plan including Starter and Basic. Upload a CSV of customer emails and amounts and the app handles the rest."
   - q: "What happens if a CSV import fails partway?"
     a: "Failed rows are logged and retriable. Successful rows persist. You can download a CSV showing exactly which rows succeeded and which failed, so you never double-credit a customer."
 ---
@@ -60,7 +48,7 @@ Bulk credit is how you say "sorry" after a shipping issue, reward a VIP segment,
 
 ## What to look for
 
-Three things. First, true CSV import with per-row notes. Second, retriable imports so a partial failure is recoverable. Third, plan compatibility, since Plus-only tools lock out most merchants.
+Three things. First, true CSV import with per-row notes. Second, retriable imports so a partial failure is recoverable. Third, plan compatibility, so the tool works whether you are on Basic or Plus.
 
 ## Our pick
 

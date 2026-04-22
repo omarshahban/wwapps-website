@@ -1,7 +1,7 @@
 ---
-title: "Best Shopify store credit apps for non-Plus stores"
+title: "Best Shopify store credit apps"
 slug: "best-shopify-store-credit-apps"
-description: "Store credit without upgrading to Shopify Plus. We compare the real options for Basic, Grow and Advanced plans."
+description: "The real store credit options for Shopify, compared honestly across every plan from Basic to Plus."
 category: "Loyalty"
 publishedAt: 2026-04-22
 updatedAt: 2026-04-22
@@ -36,20 +36,6 @@ entries:
       - "Overkill for merchants that only need store credit"
     url: "https://apps.shopify.com/gift-card-loyalty-program"
   - rank: 3
-    name: "Shopify native store credit"
-    tagline: "Built into Shopify checkout on Plus."
-    isOurs: false
-    pricing: "Plus plan only (~$2,000+/mo)"
-    rating: null
-    bestFor: "Plus merchants who want zero extra apps."
-    pros:
-      - "Lives inside Shopify checkout"
-      - "No third party"
-    cons:
-      - "Plus-only"
-      - "Limited admin tools"
-      - "No bulk CSV issuing"
-  - rank: 4
     name: "Growave"
     tagline: "Loyalty suite with store credit as one module."
     isOurs: false
@@ -65,18 +51,18 @@ entries:
     url: "https://apps.shopify.com/growave"
 faqs:
   - q: "Can I offer store credit on Shopify Basic?"
-    a: "Yes. Shopify's built-in store credit is Plus-only, but third-party apps like Win-Win Store Credit let you issue and redeem credit on any plan, including Starter and Basic."
+    a: "Yes. Win-Win Store Credit works on every Shopify plan, including Starter and Basic. Issue balances one at a time or in bulk via CSV and the credit applies automatically at checkout once the customer is logged in."
   - q: "How is store credit different from a discount code?"
     a: "Store credit is a customer-specific balance that applies automatically at checkout once the customer is logged in. Unlike discount codes, it cannot be shared or leaked."
   - q: "Do I need Shopify Plus to use store credit apps?"
-    a: "No. Most store credit apps, including ours, work on every Shopify plan. Native built-in store credit is Plus-only, but the app-based approach is identical in practice for the merchant and customer."
+    a: "No. Most store credit apps, including ours, work on every Shopify plan. The merchant and customer experience is the same on Basic as it is on Plus."
 ---
 
-## The Plus gap
+## The problem
 
-Shopify's own store credit is Plus-only, which leaves everyone on Basic, Grow and Advanced in an awkward spot. You want to give a returning customer a balance after a refund, but the native tooling is not there, so you fall back to discount codes.
+Most store credit tools are priced for big brands or bundled into heavier loyalty suites that you do not really need. If all you want is to hand a returning customer a balance after a refund, the options feel overbuilt and overpriced.
 
-The third-party options fill that gap, but they are priced for bigger brands or bundled into heavier loyalty suites you do not really need.
+The list below is the honest short-list of apps that solve that specific problem without forcing a full loyalty stack on you.
 
 ## What to look for
 

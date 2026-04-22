@@ -60,7 +60,7 @@ updatedAt: 2026-04-22
 
 ## Why we built this
 
-Shopify built native store credit but made it Plus-only, which leaves the vast majority of merchants fending for themselves. Existing store credit apps tend to be bundled with full loyalty or gift card platforms that are priced for bigger brands.
+Most existing store credit apps are bundled with full loyalty or gift card platforms priced for bigger brands. Smaller stores end up paying for referrals, reviews and points engines they do not need, just to issue a simple balance.
 
 Bulk Store Credit is the simple, honest option. Issue credit one by one or in bulk, let customers see their balance, apply it at checkout automatically. That is the whole product.
 
