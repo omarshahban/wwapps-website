@@ -22,29 +22,27 @@ const testimonials = [
   description="Simple, focused Shopify apps for real merchant problems. Every app has a meaningful free tier. No dark patterns, no lock-in, no painful pricing."
   current=""
 >
-  <section class="hero hero-visual">
-    <div class="container hero-grid">
-      <div class="hero-copy">
-        <p class="eyebrow">Shopify apps for merchants</p>
-        <h1>Small apps, real free tiers, zero friction.</h1>
-        <p class="hero-lead">We build focused Shopify apps for the everyday problems merchants actually have. Install in minutes, stop thinking about it, get back to selling.</p>
-        <div class="hero-actions">
-          <a href="/apps/" class="btn btn-primary">See all apps</a>
-          <a href="/compare/" class="btn btn-secondary">How we compare</a>
-        </div>
-        <div class="stat-strip">
-          <div class="stat-item"><strong>{liveApps.length}</strong><span>Published apps</span></div>
-          <div class="stat-item"><strong>5.0★</strong><span>Average rating</span></div>
-          <div class="stat-item"><strong>Free</strong><span>Real free tier</span></div>
-          <div class="stat-item"><strong>24h</strong><span>Support response</span></div>
-        </div>
+  <section class="hero">
+    <div class="container container-narrow">
+      <p class="eyebrow">Shopify apps for merchants</p>
+      <h1>Small apps, real free tiers, zero friction.</h1>
+      <p class="hero-lead">We build focused Shopify apps for the everyday problems merchants actually have. Install in minutes, stop thinking about it, get back to selling.</p>
+      <div class="hero-actions">
+        <a href="/apps/" class="btn btn-primary">See all apps</a>
+        <a href="/compare/" class="btn btn-secondary">How we compare</a>
       </div>
-      <div class="hero-visual-grid" aria-hidden="true">
+      <div class="logo-row" aria-hidden="true">
         {apps.slice(0, 4).map(app => (
-          <a href={`/apps/${app.slug}/`} class="hero-app-tile" title={app.data.name}>
-            <img src={app.data.logo || "/assets/Win-Win%20apps.png"} alt="" width="120" height="120" loading="eager" />
+          <a href={`/apps/${app.slug}/`} class="logo-chip" title={app.data.name}>
+            <img src={app.data.logo || "/assets/Win-Win%20apps.png"} alt="" width="48" height="48" loading="eager" />
           </a>
         ))}
+      </div>
+      <div class="stat-strip">
+        <div class="stat-item"><strong>{liveApps.length}</strong><span>Published apps</span></div>
+        <div class="stat-item"><strong>5.0★</strong><span>Average rating</span></div>
+        <div class="stat-item"><strong>Free</strong><span>Real free tier</span></div>
+        <div class="stat-item"><strong>24h</strong><span>Support response</span></div>
       </div>
     </div>
   </section>

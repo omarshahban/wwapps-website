@@ -489,6 +489,58 @@ p { margin: 0 0 1em; }
   color: var(--color-brown-secondary);
 }
 
+/* ========== Hero logo row ========== */
+.logo-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+}
+.logo-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(58, 46, 42, 0.08);
+  transition: transform 0.15s ease;
+}
+.logo-chip:hover { transform: translateY(-1px); }
+.logo-chip img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* ========== Feature tiles ========== */
+.feature-tile {
+  background: #fff;
+  border: 1px solid var(--color-brown-outline);
+  border-radius: var(--radius);
+  padding: 24px;
+}
+.feature-tile h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+.feature-tile p {
+  margin: 0;
+  color: var(--color-brown-secondary);
+  font-size: 15px;
+}
+.feature-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--color-blush-subtle);
+  color: var(--color-blush-deep);
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
 /* ========== Responsive ========== */
 @media (min-width: 640px) {
   .grid-2 { grid-template-columns: 1fr 1fr; }
