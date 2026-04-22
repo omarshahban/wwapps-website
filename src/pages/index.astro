@@ -54,7 +54,7 @@ const testimonials = [
         <h2>Pick the one that solves your problem today.</h2>
         <p>Each app does one job. Install one, a few, or all of them.</p>
       </div>
-      <div class="grid">
+      <div class={apps.length === 4 ? "grid-4" : "grid"}>
         {apps.map(app => <AppCard app={app} />)}
       </div>
     </div>

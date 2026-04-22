@@ -30,7 +30,7 @@ const comingApps = apps.filter(a => a.data.status !== "live");
             <h2>Live on the Shopify App Store</h2>
             <p>Install in minutes. Free tier on every app.</p>
           </div>
-          <div class="grid">
+          <div class={liveApps.length === 4 ? "grid-4" : "grid"}>
             {liveApps.map(app => <AppCard app={app} />)}
           </div>
         </>
@@ -41,7 +41,7 @@ const comingApps = apps.filter(a => a.data.status !== "live");
             <h2>Coming soon</h2>
             <p>Apps currently in beta or in the App Store review queue.</p>
           </div>
-          <div class="grid">
+          <div class={comingApps.length === 4 ? "grid-4" : "grid"}>
             {comingApps.map(app => <AppCard app={app} />)}
           </div>
         </div>
