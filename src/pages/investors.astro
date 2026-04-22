@@ -1,0 +1,51 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CTA from "../components/CTA.astro";
+import { getCollection } from "astro:content";
+
+const apps = await getCollection("apps");
+const live = apps.filter(a => a.data.status === "live").length;
+const soon = apps.filter(a => a.data.status === "coming-soon").length;
+---
+<BaseLayout
+  title="Investors — Win-Win Apps"
+  description="Portfolio thesis, velocity, and exit strategy for Win-Win Apps, an indie Shopify app studio."
+  current="investors"
+>
+  <section class="hero">
+    <div class="container container-narrow">
+      <p class="eyebrow">Investors</p>
+      <h1>A portfolio of simple Shopify apps.</h1>
+      <p class="hero-lead">We build small, focused Shopify apps, ship fast, and stack them into a cashflow-positive portfolio. Low overhead, no servers, exit optionality.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container container-narrow prose">
+      <h2>Thesis</h2>
+      <p>The Shopify App Store has 8,000+ apps but the long tail of mid-volume categories is poorly served. Most top apps are overpriced, overbuilt, and slow to ship. We target niches where 2 to 5 apps split the market and the leaders have obvious 1-2 star complaints. We enter with a free tier that covers what they gate behind 9 to 29 dollars a month.</p>
+
+      <h2>Why this works</h2>
+      <p>Each app is self-contained. We use Shopify metafields and theme app extensions so there is no backend database, no webhooks at scale, and no email infrastructure to maintain. That keeps cost-of-goods near zero and lets one engineer maintain the full portfolio.</p>
+
+      <h2>Velocity</h2>
+      <p>Our target is 10 new apps per month, each going from research to shipped in 3 days. We currently have {live} live, {soon} in the pipeline, and a 100-app blueprint mapped across conversion, merchandising, loyalty, fulfillment, and operations categories.</p>
+
+      <h2>Exit path</h2>
+      <p>Shopify apps trade on the secondary market at 3 to 5x ARR for healthy portfolios. Single apps with 1k+ installs and a clean review profile sell as drop-in acquisitions to larger app studios or private buyers. Our portfolio design means any subset can be sold independently, and the roll-up buyer community is active.</p>
+
+      <h2>The team</h2>
+      <p>Omar runs the studio and product direction. Shane handles production infrastructure and deployments. We keep the team small on purpose, code is written end-to-end by AI under tight human review, which is what lets us hit the 3-day build cadence.</p>
+
+      <h2>Current portfolio</h2>
+      <p>Product Badges and Bulk Store Credit are live on the Shopify App Store. Next shipments are in delivery date estimation and country-of-origin badges. Full app list and status is on <a href="/apps/">our apps page</a>.</p>
+
+      <CTA
+        heading="Want to talk?"
+        body="If you invest in indie software studios, portfolio SaaS, or Shopify ecosystem plays, we're happy to chat."
+        primaryLabel="Get in touch"
+        primaryHref="/contact/"
+      />
+    </div>
+  </section>
+</BaseLayout>

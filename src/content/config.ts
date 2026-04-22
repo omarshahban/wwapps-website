@@ -38,8 +38,8 @@ const apps = defineCollection({
       author: z.string(),
       rating: z.number()
     })).optional(),
-    publishedAt: z.date().optional(),
-    updatedAt: z.date().optional()
+    publishedAt: z.coerce.date().optional(),
+    updatedAt: z.coerce.date().optional()
   })
 });
 
@@ -49,8 +49,8 @@ const listicles = defineCollection({
     title: z.string(),
     description: z.string(),
     category: z.string(),
-    publishedAt: z.date(),
-    updatedAt: z.date(),
+    publishedAt: z.coerce.date(),
+    updatedAt: z.coerce.date(),
     heroImage: z.string().optional(),
     entries: z.array(z.object({
       rank: z.number(),
@@ -78,8 +78,8 @@ const comparisons = defineCollection({
     description: z.string(),
     ourApp: z.string(),
     competitor: z.string(),
-    publishedAt: z.date(),
-    updatedAt: z.date(),
+    publishedAt: z.coerce.date(),
+    updatedAt: z.coerce.date(),
     verdictSummary: z.string(),
     matrix: z.array(z.object({
       feature: z.string(),
@@ -100,8 +100,8 @@ const howto = defineCollection({
     description: z.string(),
     category: z.string(),
     relatedApp: z.string().optional(),
-    publishedAt: z.date(),
-    updatedAt: z.date(),
+    publishedAt: z.coerce.date(),
+    updatedAt: z.coerce.date(),
     readingTime: z.number().optional()
   })
 });
@@ -111,8 +111,8 @@ const blog = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
-    publishedAt: z.date(),
-    updatedAt: z.date().optional(),
+    publishedAt: z.coerce.date(),
+    updatedAt: z.coerce.date().optional(),
     author: z.string().default('Win-Win Apps'),
     tags: z.array(z.string()).default([])
   })

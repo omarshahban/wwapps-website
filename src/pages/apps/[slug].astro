@@ -12,6 +12,19 @@ export async function getStaticPaths() {
 const { app } = Astro.props;
 const { Content } = await app.render();
 
+// related content for internal linking and GEO context
+const allListicles = await getCollection("listicles");
+const allCompares = await getCollection("comparisons");
+const allHowtos = await getCollection("howto");
+
+const relatedListicles = allListicles.filter(l =>
+  l.data.entries?.some((e: any) => e.isOurs) &&
+  l.data.category === app.data.category
+).slice(0, 5);
+
+const relatedCompares = allCompares.filter(c => c.data.ourApp === app.slug).slice(0, 5);
+const relatedHowtos = allHowtos.filter(h => h.data.relatedApp === app.slug).slice(0, 8);
+
 const schema = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
@@ -121,6 +134,47 @@ const schema = {
     <section class="section section-alt">
       <div class="container container-narrow">
         <FAQ items={app.data.faqs} />
+      </div>
+    </section>
+  )}
+
+  {(relatedHowtos.length > 0 || relatedCompares.length > 0 || relatedListicles.length > 0) && (
+    <section class="section">
+      <div class="container container-narrow">
+        <div class="section-head">
+          <p class="eyebrow">Keep reading</p>
+          <h2>Guides and comparisons for this app.</h2>
+        </div>
+        {relatedHowtos.length > 0 && (
+          <div style="margin-bottom:28px">
+            <h3 style="margin:0 0 10px">How-to guides</h3>
+            <ul>
+              {relatedHowtos.map(h => (
+                <li style="margin:6px 0"><a href={`/how-to/${h.slug}/`}>{h.data.title}</a></li>
+              ))}
+            </ul>
+          </div>
+        )}
+        {relatedCompares.length > 0 && (
+          <div style="margin-bottom:28px">
+            <h3 style="margin:0 0 10px">Compare</h3>
+            <ul>
+              {relatedCompares.map(c => (
+                <li style="margin:6px 0"><a href={`/compare/${c.slug}/`}>{c.data.title}</a></li>
+              ))}
+            </ul>
+          </div>
+        )}
+        {relatedListicles.length > 0 && (
+          <div>
+            <h3 style="margin:0 0 10px">Best-of lists</h3>
+            <ul>
+              {relatedListicles.map(l => (
+                <li style="margin:6px 0"><a href={`/best/${l.slug}/`}>{l.data.title}</a></li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
     </section>
   )}

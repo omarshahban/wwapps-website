@@ -6,14 +6,18 @@ const { app } = Astro.props;
 const status = app.data.status;
 const statusClass = status === "live" ? "badge-live" : status === "beta" ? "badge-beta" : "badge-soon";
 const statusLabel = status === "live" ? "Live" : status === "beta" ? "Beta" : "Coming soon";
+const logo = app.data.logo || "/assets/Win-Win%20apps.png";
 ---
-<article class="card">
-  <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:12px">
-    <h3><a href={`/apps/${app.slug}/`}>{app.data.name}</a></h3>
+<article class="card app-card">
+  <div class="app-card-head">
+    <img src={logo} alt="" class="app-card-logo" width="72" height="72" loading="lazy" />
+    <div class="app-card-head-text">
+      <h3><a href={`/apps/${app.slug}/`}>{app.data.name}</a></h3>
+      <p class="card-meta">{app.data.category}</p>
+    </div>
     <span class={`badge ${statusClass}`}>{statusLabel}</span>
   </div>
-  <p class="card-meta">{app.data.category}</p>
-  <p>{app.data.tagline}</p>
+  <p class="app-card-tagline">{app.data.tagline}</p>
   {app.data.features && app.data.features.length > 0 && (
     <ul class="checklist">
       {app.data.features.slice(0, 3).map((f: string) => <li>{f}</li>)}
@@ -21,8 +25,10 @@ const statusLabel = status === "live" ? "Live" : status === "beta" ? "Beta" : "C
   )}
   <div class="card-actions">
     <a href={`/apps/${app.slug}/`} class="btn btn-secondary">Learn more</a>
-    {app.data.shopifyUrl && (
-      <a href={app.data.shopifyUrl} target="_blank" rel="noopener" class="btn btn-primary">Install</a>
+    {app.data.shopifyUrl ? (
+      <a href={app.data.shopifyUrl} target="_blank" rel="noopener" class="btn btn-primary">Install on Shopify</a>
+    ) : (
+      <a href="/contact/" class="btn btn-primary">Join waitlist</a>
     )}
   </div>
 </article>

@@ -9,33 +9,42 @@ const apps = (await getCollection("apps")).sort((a, b) => {
   const order: Record<string, number> = { live: 0, beta: 1, "coming-soon": 2 };
   return (order[a.data.status] ?? 9) - (order[b.data.status] ?? 9);
 });
+const liveApps = apps.filter(a => a.data.status === "live");
 
 const testimonials = [
   { quote: "amazing support, great features, and is incredibly easy to use", author: "Store Credit merchant", rating: 5 },
   { quote: "Bulk store credit tool works immaculately. Saved us hours every week.", author: "Store Credit merchant", rating: 5 },
-  { quote: "The cash-back offer feature automatically displays an offer at checkout. Our return rate dropped.", author: "Returns merchant", rating: 5 }
+  { quote: "Finally a badge app that does not hide basic stuff behind a paywall. Installed in five minutes.", author: "Product Badges merchant", rating: 5 }
 ];
 ---
 <BaseLayout
-  title="Win-Win Apps: Shopify apps that help merchants and customers"
-  description="Simple Shopify apps that help merchants grow and keep their customers happy. Built by a small team, priced fairly, and built for velocity."
+  title="Win-Win Apps: honest Shopify apps with real free tiers"
+  description="Simple, focused Shopify apps for real merchant problems. Every app has a meaningful free tier. No dark patterns, no lock-in, no painful pricing."
   current=""
 >
-  <section class="hero">
-    <div class="container">
-      <p class="eyebrow">Shopify apps</p>
-      <h1>Shopify apps that create win-wins for merchants and their customers.</h1>
-      <p class="hero-lead">We build focused, affordable Shopify apps for real merchant problems. Each one does one job well and works out of the box.</p>
-      <div class="hero-actions">
-        <a href="/apps/" class="btn btn-primary">Browse our apps</a>
-        <a href="/about/" class="btn btn-secondary">About Win-Win Apps</a>
+  <section class="hero hero-visual">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Shopify apps for merchants</p>
+        <h1>Small apps, real free tiers, zero friction.</h1>
+        <p class="hero-lead">We build focused Shopify apps for the everyday problems merchants actually have. Install in minutes, stop thinking about it, get back to selling.</p>
+        <div class="hero-actions">
+          <a href="/apps/" class="btn btn-primary">See all apps</a>
+          <a href="/compare/" class="btn btn-secondary">How we compare</a>
+        </div>
+        <div class="stat-strip">
+          <div class="stat-item"><strong>{liveApps.length}</strong><span>Published apps</span></div>
+          <div class="stat-item"><strong>5.0★</strong><span>Average rating</span></div>
+          <div class="stat-item"><strong>Free</strong><span>Real free tier</span></div>
+          <div class="stat-item"><strong>24h</strong><span>Support response</span></div>
+        </div>
       </div>
-
-      <div class="stat-strip">
-        <div class="stat-item"><strong>{apps.length}+</strong><span>Apps shipped</span></div>
-        <div class="stat-item"><strong>5.0★</strong><span>Average rating</span></div>
-        <div class="stat-item"><strong>Free</strong><span>Meaningful free tier</span></div>
-        <div class="stat-item"><strong>24h</strong><span>Support response</span></div>
+      <div class="hero-visual-grid" aria-hidden="true">
+        {apps.slice(0, 4).map(app => (
+          <a href={`/apps/${app.slug}/`} class="hero-app-tile" title={app.data.name}>
+            <img src={app.data.logo || "/assets/Win-Win%20apps.png"} alt="" width="120" height="120" loading="eager" />
+          </a>
+        ))}
       </div>
     </div>
   </section>
@@ -44,8 +53,8 @@ const testimonials = [
     <div class="container">
       <div class="section-head">
         <p class="eyebrow">Our apps</p>
-        <h2>Built for merchants, priced for indie stores.</h2>
-        <p>Each app has a meaningful free tier. Paid tiers are priced well below the category norm. We keep our apps simple so you can get value in minutes.</p>
+        <h2>Pick the one that solves your problem today.</h2>
+        <p>Each app does one job. Install one, a few, or all of them.</p>
       </div>
       <div class="grid">
         {apps.map(app => <AppCard app={app} />)}
@@ -54,6 +63,47 @@ const testimonials = [
   </section>
 
   <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Why merchants pick us</p>
+        <h2>The things that matter, done properly.</h2>
+      </div>
+      <div class="grid grid-3">
+        <div class="feature-tile">
+          <div class="feature-icon" aria-hidden="true">✓</div>
+          <h3>Real free tier</h3>
+          <p>Not a trial. A real plan you can run forever. Paid tiers kick in only when you outgrow the limits.</p>
+        </div>
+        <div class="feature-tile">
+          <div class="feature-icon" aria-hidden="true">⚡</div>
+          <h3>5-minute setup</h3>
+          <p>App embed install, no theme edits, no developer needed. You click install and it works.</p>
+        </div>
+        <div class="feature-tile">
+          <div class="feature-icon" aria-hidden="true">♡</div>
+          <h3>Support that replies</h3>
+          <p>You email us, you get one of us back within 24 hours. No ticket queue, no outsourced first line.</p>
+        </div>
+        <div class="feature-tile">
+          <div class="feature-icon" aria-hidden="true">◇</div>
+          <h3>No lock-in</h3>
+          <p>Your settings and data live on Shopify metafields. Uninstall clean, no leftover code.</p>
+        </div>
+        <div class="feature-tile">
+          <div class="feature-icon" aria-hidden="true">↻</div>
+          <h3>Fast shipping</h3>
+          <p>We ship new apps weekly and new features every few days. Merchant feedback gets built fast.</p>
+        </div>
+        <div class="feature-tile">
+          <div class="feature-icon" aria-hidden="true">$</div>
+          <h3>Honest pricing</h3>
+          <p>We never gate obvious features to force an upgrade. Pay for real extras, not basics.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
     <div class="container">
       <div class="section-head">
         <p class="eyebrow">Merchants say</p>
@@ -65,37 +115,13 @@ const testimonials = [
     </div>
   </section>
 
-  <section class="section section-alt">
-    <div class="container">
-      <div class="section-head">
-        <p class="eyebrow">Why Win-Win Apps</p>
-        <h2>We do the simple things very well.</h2>
-        <p>We believe the best Shopify apps are the ones you install, set up in five minutes, and stop thinking about.</p>
-      </div>
-      <div class="grid grid-3">
-        <div class="card">
-          <h3>Every app has a free tier</h3>
-          <p>Not a trial. A real free tier you can run forever, with paid plans only when you outgrow the limits.</p>
-        </div>
-        <div class="card">
-          <h3>Fast support from a small team</h3>
-          <p>You email us, you get one of us back within 24 hours. No ticket queue, no outsourced first line.</p>
-        </div>
-        <div class="card">
-          <h3>No lock-in, no dark patterns</h3>
-          <p>Uninstall at any time. All your settings and data stay in your store, not in a vendor silo.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <section class="section">
     <div class="container container-narrow">
       <CTA
-        heading="Want to build a custom app with us?"
-        body="If you have a specific workflow no existing Shopify app solves, we take on a small number of custom builds per quarter."
-        primaryLabel="Get in touch"
-        primaryHref="/contact/"
+        heading="Stop paying for basic features."
+        body="Install any of our apps free from the Shopify App Store in minutes."
+        primaryLabel="Browse all apps"
+        primaryHref="/apps/"
         secondaryLabel="Read our blog"
         secondaryHref="/blog/"
       />

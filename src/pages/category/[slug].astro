@@ -1,0 +1,82 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import AppCard from "../../components/AppCard.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const apps = await getCollection("apps");
+  const cats = Array.from(new Set(apps.map(a => a.data.category)));
+  return cats.map(cat => ({
+    params: { slug: cat.toLowerCase() },
+    props: { category: cat }
+  }));
+}
+
+const { category } = Astro.props;
+const apps = (await getCollection("apps")).filter(a => a.data.category === category);
+const listicles = (await getCollection("listicles")).filter(l => l.data.category === category);
+const howtos = (await getCollection("howto")).filter(h => h.data.category === category || h.data.category === "Merchandising" || h.data.category === "Loyalty");
+
+const blurb: Record<string, string> = {
+  "Conversion": "Apps that lift conversion rate on product and collection pages. Badges, delivery dates, origin labels, the things shoppers look for before they hit buy.",
+  "Loyalty": "Apps that keep customers coming back. Store credit, rewards, retention tools, all with a generous free tier.",
+  "Merchandising": "Ways to present products well so the right items get seen by the right shoppers.",
+  "Fulfillment": "Delivery, shipping, and post-purchase clarity for merchants who want fewer where-is-my-order emails."
+};
+---
+<BaseLayout
+  title={`${category} Shopify apps and guides — Win-Win Apps`}
+  description={`Shopify ${category.toLowerCase()} apps, comparisons, and how-to guides from Win-Win Apps.`}
+>
+  <section class="hero">
+    <div class="container container-narrow">
+      <p class="eyebrow">Category</p>
+      <h1>{category} apps for Shopify.</h1>
+      <p class="hero-lead">{blurb[category] || `Our Shopify ${category.toLowerCase()} apps, plus comparisons and how-tos for merchants.`}</p>
+    </div>
+  </section>
+
+  {apps.length > 0 && (
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Our {category.toLowerCase()} apps</h2>
+        </div>
+        <div class="grid">
+          {apps.map(app => <AppCard app={app} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {listicles.length > 0 && (
+    <section class="section">
+      <div class="container container-narrow">
+        <div class="section-head">
+          <h2>Best-of lists</h2>
+        </div>
+        {listicles.map(l => (
+          <article class="card" style="margin-bottom:16px">
+            <h3 style="margin:0 0 6px"><a href={`/best/${l.slug}/`}>{l.data.title}</a></h3>
+            <p style="margin:0">{l.data.description}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+  )}
+
+  {howtos.length > 0 && (
+    <section class="section">
+      <div class="container container-narrow">
+        <div class="section-head">
+          <h2>How-to guides</h2>
+        </div>
+        <ul>
+          {howtos.map(h => (
+            <li style="margin:8px 0"><a href={`/how-to/${h.slug}/`}>{h.data.title}</a></li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
+</BaseLayout>
