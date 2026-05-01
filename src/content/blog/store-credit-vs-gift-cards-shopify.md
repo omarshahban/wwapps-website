@@ -13,6 +13,8 @@ tags:
 
 Most Shopify merchants use the words "store credit" and "gift card" interchangeably. They are not the same thing. Picking the wrong one can leak revenue, confuse customers, and create accounting headaches. This guide walks through the differences, the right tool for each job, and how each one shows up in your Shopify admin and on the customer side.
 
+![Side-by-side comparison of gift cards and store credit on Shopify](/blog-images/store-credit-vs-gift-cards/1-decision-matrix.png)
+
 ## The short version
 
 Use a gift card when someone is buying value for someone else. Use store credit when you are giving value to a known customer that you already have a relationship with. That is the cleanest line.
@@ -52,6 +54,8 @@ Gift cards are a product type in Shopify admin. You manage them under Products a
 
 Store credit is not a built-in concept on most Shopify plans. You add it via an app like Win-Win Store Credit. Balances are stored on Shopify customer metafields, which means the data lives inside your shop, not on a third-party database. The app applies the customer's available credit as a discount line at checkout when the customer is logged in.
 
+![Customer redemption flow comparison: gift card uses a code, store credit auto-applies](/blog-images/store-credit-vs-gift-cards/2-customer-flow.png)
+
 ## Accounting differences
 
 This is where merchants get tripped up.
@@ -59,6 +63,8 @@ This is where merchants get tripped up.
 A gift card sale is revenue, but only when the gift card is redeemed against a product. When the card is purchased, the money sits as a liability. Shopify reports the gift card sales separately so you can reconcile them. Most accountants treat the unredeemed balance as deferred revenue.
 
 Store credit is closer to a customer-specific discount. When you issue store credit as a refund, no new revenue is created. The original sale is reduced. When you issue store credit as a marketing gesture, it sits as a future discount on a future sale, not as revenue. Treatment varies by jurisdiction so check with your accountant.
+
+![Where gift cards and store credit show up on the books](/blog-images/store-credit-vs-gift-cards/3-accounting-treatment.png)
 
 ## Which one drives more retention
 
