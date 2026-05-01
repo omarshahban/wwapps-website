@@ -20,7 +20,7 @@ const ourApp = post.data.ourAppSlug ? apps.find(a => a.slug === post.data.ourApp
   description={post.data.description}
   current="compare"
 >
-  <section class="hero">
+  <section class="hero hero-compact">
     <div class="container">
       <p class="eyebrow">Comparison</p>
       <h1>{post.data.title}</h1>
@@ -67,7 +67,7 @@ const ourApp = post.data.ourAppSlug ? apps.find(a => a.slug === post.data.ourApp
     </div>
   </section>
 
-  <section class="section">
+  <section class="section section-tight">
     <div class="container container-narrow">
       <div class="callout" style="margin-bottom:32px">
         <h3 style="margin:0 0 8px">Short answer</h3>

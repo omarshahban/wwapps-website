@@ -25,14 +25,14 @@ const schema = {
   current="blog"
   schema={schema}
 >
-  <section class="hero">
+  <section class="hero hero-compact">
     <div class="container container-narrow">
       <p class="eyebrow">{post.data.publishedAt.toISOString().slice(0, 10)}</p>
       <h1>{post.data.title}</h1>
       <p class="hero-lead">{post.data.description}</p>
     </div>
   </section>
-  <section class="section">
+  <section class="section section-tight">
     <div class="container container-narrow prose">
       <Content />
     </div>

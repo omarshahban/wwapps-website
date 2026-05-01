@@ -28,7 +28,7 @@ const sortedEntries = post.data.entries.slice().sort((a, b) => a.rank - b.rank);
   current="best"
   schema={itemList}
 >
-  <section class="hero">
+  <section class="hero hero-compact">
     <div class="container">
       <p class="eyebrow">{post.data.category}</p>
       <h1>{post.data.title}</h1>
@@ -37,7 +37,7 @@ const sortedEntries = post.data.entries.slice().sort((a, b) => a.rank - b.rank);
     </div>
   </section>
 
-  <section class="section">
+  <section class="section section-tight">
     <div class="container">
       <div class="listicle-grid">
         {sortedEntries.map(e => (
