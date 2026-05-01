@@ -15,7 +15,7 @@ export async function getStaticPaths() {
 const { app } = Astro.props;
 const { Content } = await app.render();
 
-// related content for internal linking and GEO context
+// related content for internal linking
 const allListicles = await getCollection("listicles");
 const allCompares = await getCollection("comparisons");
 const allHowtos = await getCollection("howto");
