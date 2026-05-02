@@ -1,0 +1,128 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CTA from "../components/CTA.astro";
+import { getCollection } from "astro:content";
+
+const apps = await getCollection("apps");
+const ourApp = apps.find(a => a.slug === "win-win-store-credit");
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "What is Shopify store credit (and how does it work)",
+  description: "A plain-English explanation of Shopify store credit. What it is, what it is not, how merchants issue it, and how it applies at checkout.",
+  datePublished: "2026-05-01",
+  dateModified: "2026-05-01",
+  author: { "@type": "Organization", name: "Win-Win Apps", url: "https://wwapps.io" },
+  url: "https://wwapps.io/what-is-shopify-store-credit/",
+};
+---
+<BaseLayout
+  title="What is Shopify Store Credit (Plain English Explainer)"
+  description="A plain-English explanation of Shopify store credit. What it is, what it is not, how merchants issue it, and how it applies at checkout."
+  current="blog"
+  schema={schema}
+>
+  <section class="hero hero-compact">
+    <div class="container container-narrow">
+      <p class="eyebrow">Explainer</p>
+      <h1>What is Shopify store credit</h1>
+      <p class="hero-lead">A plain-English answer for merchants who keep hearing the term but want to understand what it actually means before deciding if they need it.</p>
+    </div>
+  </section>
+
+  <section class="section section-tight">
+    <div class="container container-narrow prose">
+
+      <p>Shopify store credit is a balance attached to a specific customer record on your Shopify store. The merchant adds value to that balance, the customer sees it on their account page, and at checkout the balance applies automatically as a discount line on the order. There is no code, no coupon, and no email forwarding.</p>
+
+      <p>That is the entire concept. The detail below covers what makes store credit different from gift cards, refunds, and discount codes, and when each one is the right tool for the job.</p>
+
+      <img src="/blog-images/store-credit-cluster/whatis-1-anatomy.png" alt="Anatomy of Shopify store credit, balance on customer record applied at checkout" />
+
+      <h2>The 30-second version</h2>
+
+      <p>If you want a quick answer before scrolling: Shopify store credit is like a customer-specific discount that lives on the customer record, applies automatically at checkout when the customer is logged in, and never needs a code. Use it for refunds, win-back campaigns, VIP rewards, and anywhere you would otherwise hand out a discount code that you do not want shared or leaked.</p>
+
+      <h2>What Shopify store credit is not</h2>
+
+      <p>Three things people often confuse with store credit:</p>
+
+      <p><strong>It is not a gift card.</strong> A gift card is a product. Someone buys it, gets a code, and the code can be redeemed by anyone who has it. Store credit is a balance, locked to one customer record, and there is no code. We covered the full distinction in <a href="/blog/store-credit-vs-gift-cards-shopify/">store credit vs gift cards on Shopify</a>.</p>
+
+      <p><strong>It is not a discount code.</strong> A discount code can be applied by anyone who types it. Store credit only applies to the specific customer it was issued to, when they are logged in. This means it cannot leak to influencers, deal sites, or coupon scrapers.</p>
+
+      <p><strong>It is not a refund.</strong> A refund moves money out of your shop and back to the customer's payment method. Store credit keeps the value on your shop, available for the customer's next order. Many merchants now refund to credit by default, which we cover in <a href="/how-to/give-store-credit-instead-of-refund-shopify/">how to give store credit instead of a refund</a>.</p>
+
+      <h2>How a merchant issues Shopify store credit</h2>
+
+      <p>From the merchant side, the workflow has two main paths.</p>
+
+      <p>The single-customer path: open the customer record in Shopify admin, find the store credit card (native if you are on Shopify Plus, app-installed otherwise), click Issue credit, enter the amount and an optional internal note, and confirm. The customer gets an email and the balance is live for the next checkout.</p>
+
+      <p>The bulk path: build a customer segment in Shopify (for example, customers who placed at least one order in the last 6 months), export as CSV, drop the CSV into the bulk credit tool, set a flat amount, and confirm. Every customer in the segment gets credit at the same time. This is the move that wins back lapsed customers, covered in <a href="/how-to/win-back-lapsed-customers-store-credit-shopify/">win back lapsed Shopify customers with store credit</a>.</p>
+
+      <h2>How a customer redeems Shopify store credit</h2>
+
+      <img src="/blog-images/store-credit-cluster/whatis-2-customer-view.png" alt="What a customer sees when they have Shopify store credit available" />
+
+      <p>From the customer side, the experience is intentionally invisible. They get an email letting them know they have a new balance. The next time they shop, they log into their account, add products to cart, and check out. The credit applies automatically as a discount line on the order summary. If the credit covers the full order, the payment total is zero. If not, they pay the remainder as normal.</p>
+
+      <p>For the full mechanics including edge cases, see <a href="/how-to/how-store-credit-works-checkout-shopify/">how store credit works at Shopify checkout</a>.</p>
+
+      <h2>Which Shopify plans support store credit</h2>
+
+      <p><strong>Shopify Plus</strong> has native store credit built in. If your store is on Plus, you can issue and redeem store credit in the admin without any app installed.</p>
+
+      <p><strong>Every other Shopify plan</strong> (Starter, Basic, Grow, Advanced) does not include native store credit. You add it via a third-party app such as <a href="/apps/win-win-store-credit/">Bulk Store Credit by Win-Win Apps</a>. The merchant and customer experience is the same, the only difference is that balances are stored as Shopify customer metafields rather than as native Shopify objects.</p>
+
+      <h2>When Shopify store credit is the right tool</h2>
+
+      <p>Use it when:</p>
+
+      <ul>
+        <li>You want to refund an order without sending cash out the door.</li>
+        <li>You want to thank a VIP customer with a balance, not a code.</li>
+        <li>You want to reactivate lapsed customers with a personal credit instead of a discount campaign.</li>
+        <li>You want to apologize after a shipping issue and keep the value on your shop.</li>
+        <li>You run a wholesale or B2B program where customers are used to thinking in account balances.</li>
+      </ul>
+
+      <p>Skip it (and use a gift card or discount code instead) when:</p>
+
+      <ul>
+        <li>The buyer and the recipient are different people. That is what gift cards are for.</li>
+        <li>You are running a public promotion. That is what discount codes are for.</li>
+        <li>You only need it once or twice a year, in which case the manual store credit feature on Plus is fine, or a discount code is simpler.</li>
+      </ul>
+
+      <h2>What store credit costs to set up</h2>
+
+      <p>If you are on Shopify Plus, native store credit is included in your plan. No extra cost.</p>
+
+      <p>If you are on any other plan, you install an app. <a href="/apps/win-win-store-credit/">Bulk Store Credit by Win-Win Apps</a> has a free tier (the customer-facing widget plus 10 rows of CSV) and a Pro plan at $49 per month for unlimited bulk credit issuance. Most stores running win-back campaigns or VIP programs need Pro. Simple refund-to-credit flows can run on free.</p>
+
+      <p>Other apps in this category (Rise.ai, Growave) bundle store credit with full loyalty platforms and start at $19.99 per month, scaling up depending on order volume. We compare them honestly in <a href="/best/best-shopify-store-credit-apps/">best Shopify store credit apps</a>.</p>
+
+      <h2>Where to go next</h2>
+
+      <p>If you want the full pillar guide covering everything from accounting to checkout edge cases, read <a href="/shopify-store-credit/">Shopify store credit, the complete merchant guide</a>.</p>
+
+      <p>If you are ready to install, <a href="/apps/win-win-store-credit/">Bulk Store Credit by Win-Win Apps</a> has a free tier you can try on your store today. Works on every Shopify plan including Starter and Basic.</p>
+
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container container-narrow">
+      <CTA
+        heading="Try Shopify store credit on your store."
+        body="Free plan, every Shopify plan supported, no credit card to install."
+        primaryLabel={ourApp?.data.shopifyUrl ? "Install Free on Shopify" : "Learn more"}
+        primaryHref={ourApp?.data.shopifyUrl || "/apps/win-win-store-credit/"}
+        secondaryLabel="Read the complete guide"
+        secondaryHref="/shopify-store-credit/"
+      />
+    </div>
+  </section>
+</BaseLayout>
