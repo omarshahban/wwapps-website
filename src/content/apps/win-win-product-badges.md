@@ -1,7 +1,7 @@
 ---
 name: "Product Badges"
-tagline: "Boost sales with eye-catching product badges. Free plan. No code."
-description: "Add Sale, New, Bestseller, Hot, or fully custom badges to any product image. Multiple shapes, full targeting by tag or collection, and a real free tier. No theme edits, no liquid code."
+tagline: "The Shopify badges app for Sale, New, Bestseller, and custom product badge labels. Free plan, no code."
+description: "Add Shopify product badges to any product image in seconds. Sale, New, Bestseller, Hot, or fully custom product badge designs. Multiple shapes, targeting by tag or collection, and a real free tier. No theme edits, no Liquid."
 category: "Conversion"
 status: "live"
 shopifyUrl: "https://apps.shopify.com/badges-claude-automated"

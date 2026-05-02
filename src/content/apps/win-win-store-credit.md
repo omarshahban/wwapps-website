@@ -1,7 +1,7 @@
 ---
 name: "Bulk Store Credit"
-tagline: "Bulk issue store credit via CSV upload. Auto-reward buyers."
-description: "Issue store credit one at a time or in bulk via CSV. Works on every Shopify plan. Auto-reward returning buyers, refund to credit, and give customers a balance that applies at checkout."
+tagline: "The Shopify store credit app for bulk CSV issuance. Free tier, every plan."
+description: "Bulk Store Credit is the Shopify store credit app that lets merchants issue credit one at a time or thousands at once via CSV. Works on every Shopify plan including Basic. Refund to credit, auto-reward returning buyers, and apply credit automatically at checkout."
 category: "Loyalty"
 status: "live"
 shopifyUrl: "https://apps.shopify.com/win-win-store-credit"

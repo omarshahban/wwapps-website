@@ -1,6 +1,6 @@
 ---
-title: "How to refund a Shopify order to store credit instead of original payment"
-description: "Retain the revenue by refunding to store credit. Works on any Shopify plan with Bulk Store Credit by Win-Win Apps."
+title: "Refund to store credit on Shopify: the merchant guide"
+description: "Refund to store credit on Shopify instead of cash. Keep the revenue, lift repeat purchase rate. Step by step on any Shopify plan with Bulk Store Credit."
 category: "Retention"
 relatedApp: "win-win-store-credit"
 publishedAt: "2026-04-22"
